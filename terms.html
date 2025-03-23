@@ -38,12 +38,12 @@
                 <span class="text-xl font-bold text-gray-800">BackupBot</span>
             </div>
             <div class="hidden md:flex space-x-6">
-                <a href="index.html#features" class="text-gray-700 hover:text-indigo-600">Features</a>
-                <a href="index.html#how-to-use" class="text-gray-700 hover:text-indigo-600">How To Use</a>
-                <a href="index.html#commands" class="text-gray-700 hover:text-indigo-600">Commands</a>
-                <a href="index.html#developer" class="text-gray-700 hover:text-indigo-600">Developer</a>
-                <a href="privacy-policy.html" class="text-gray-700 hover:text-indigo-600">Privacy Policy</a>
-                <a href="terms.html" class="text-indigo-600 hover:text-indigo-700 font-medium">Terms Of Service</a>
+                <a href="/index.html#features" class="text-gray-700 hover:text-indigo-600">Features</a>
+                <a href="/index.html#how-to-use" class="text-gray-700 hover:text-indigo-600">How To Use</a>
+                <a href="/index.html#commands" class="text-gray-700 hover:text-indigo-600">Commands</a>
+                <a href="/index.html#developer" class="text-gray-700 hover:text-indigo-600">Developer</a>
+                <a href="/privacy-policy.html" class="text-gray-700 hover:text-indigo-600">Privacy Policy</a>
+                <a href="/terms.html" class="text-indigo-600 hover:text-indigo-700 font-medium">Terms Of Service</a>
             </div>
             <div>
                 <a href="https://andres9890.github.io/serverbackup/" class="hidden md:inline-block bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition-colors">Add to your Server</a>
@@ -201,12 +201,12 @@
                     <span class="text-xl font-bold">BackupBot</span>
                 </div>
                 <div class="flex space-x-6">
-                    <a href="index.html#features" class="text-gray-400 hover:text-white">Features</a>
-                    <a href="index.html#how-to-use" class="text-gray-400 hover:text-white">How To Use</a>
-                    <a href="index.html#commands" class="text-gray-400 hover:text-white">Commands</a>
-                    <a href="index.html#developer" class="text-gray-400 hover:text-white">Developer</a>
-                    <a href="privacy-policy.html" class="text-gray-200 hover:text-white">Privacy Policy</a>
-                    <a href="terms.html" class="text-white font-semibold">Terms Of Service</a>
+                    <a href="/index.html#features" class="text-gray-400 hover:text-white">Features</a>
+                    <a href="/index.html#how-to-use" class="text-gray-400 hover:text-white">How To Use</a>
+                    <a href="/index.html#commands" class="text-gray-400 hover:text-white">Commands</a>
+                    <a href="/index.html#developer" class="text-gray-400 hover:text-white">Developer</a>
+                    <a href="/privacy-policy.html" class="text-gray-200 hover:text-white">Privacy Policy</a>
+                    <a href="/terms.html" class="text-white font-semibold">Terms Of Service</a>
                 </div>
                 <div class="mt-4 md:mt-0">
                     <a href="https://discord.gg/Xnh5ckQVyV" class="text-gray-400 hover:text-white">
@@ -219,6 +219,12 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        if (window.location.pathname.endsWith('/terms.html')) {
+          history.replaceState(null, document.title, '/terms');
+        }
+      </script>
 
     <script>
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
