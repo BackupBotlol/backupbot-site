@@ -221,12 +221,6 @@
     </footer>
 
     <script>
-        if (window.location.pathname.endsWith('/terms.html')) {
-          history.replaceState(null, document.title, '/terms');
-        }
-      </script>
-
-    <script>
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
