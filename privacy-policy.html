@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BackupBot - Privacy Policy</title>
+    <link rel="icon" href="https://pomf2.lain.la/f/lbakgdb.ico" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #7289da 0%, #4e5d94 100%);
+        }
+        .command-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .command-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        .feature-icon {
+            background: #7289da;
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+        .policy-section {
+            margin-bottom: 2rem;
+        }
+        .policy-section h3 {
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <img src="https://pomf2.lain.la/f/28miu6ub.png" alt="BackupBot Logo" class="w-10 h-10">
+                <span class="text-xl font-bold text-gray-800">BackupBot</span>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="index.html#features" class="text-gray-700 hover:text-indigo-600">Features</a>
+                <a href="index.html#how-to-use" class="text-gray-700 hover:text-indigo-600">How To Use</a>
+                <a href="index.html#commands" class="text-gray-700 hover:text-indigo-600">Commands</a>
+                <a href="index.html#developer" class="text-gray-700 hover:text-indigo-600">Developer</a>
+                <a href="privacy-policy.html" class="text-indigo-600 font-semibold">Privacy Policy</a>
+                <a href="tos.html" class="text-gray-700 hover:text-indigo-600">Terms Of Service</a>
+            </div>
+            <div>
+                <a href="https://andres9890.github.io/serverbackup/" class="hidden md:inline-block bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition-colors">Add to your Server</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-gradient text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Privacy Policy</h1>
+            <p class="text-xl">Effective Date: March 23, 2025</p>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="policy-section">
+                <h3 class="text-2xl font-bold text-gray-800">Introduction</h3>
+                <p class="text-gray-600">This Privacy Policy explains how BackupBot collects, uses, and shares information in connection with your use of our Discord bot service. This policy applies to all users of the BackupBot service.</p>
+            </div>
+
+            <div class="policy-section">
+                <h3 class="text-2xl font-bold text-gray-800">Information We Collect</h3>
+                
+                <h4 class="text-xl font-semibold mt-6 mb-3 text-gray-700">Server Data</h4>
+                <ul class="list-disc pl-6 text-gray-600 space-y-2">
+                    <li><span class="font-semibold">Server Information:</span> When you use the /addserver command, we collect basic information about your Discord server, including server name, description, member count, creation date, boost count, and boost level.</li>
+                    <li><span class="font-semibold">Server Assets:</span> We collect and process server assets including server icon, banner, splash image, and discovery splash (if available).</li>
+                    <li><span class="font-semibold">Channel Structure:</span> We collect information about your server's channels, including names and types (text, voice, categories).</li>
+                    <li><span class="font-semibold">Role Information:</span> We collect role names and their associated permissions.</li>
+                    <li><span class="font-semibold">Role Icons:</span> If roles have custom icons, these are collected during the backup process.</li>
+                    <li><span class="font-semibold">Custom Emojis and Stickers:</span> We collect all custom emojis and stickers from your server.</li>
+                </ul>
+
+                <h4 class="text-xl font-semibold mt-6 mb-3 text-gray-700">Configuration Data</h4>
+                <ul class="list-disc pl-6 text-gray-600 space-y-2">
+                    <li><span class="font-semibold">Log Channel ID:</span> We store the ID of the channel you designate for receiving backup files.</li>
+                    <li><span class="font-semibold">Timezone Settings:</span> We store your selected timezone for scheduling backups.</li>
+                    <li><span class="font-semibold">Backup Schedule Information:</span> We store information about when your next backup is scheduled.</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h3 class="text-2xl font-bold text-gray-800">How We Use Information</h3>
+                
+                <h4 class="text-xl font-semibold mt-6 mb-3 text-gray-700">Backup Creation and Storage</h4>
+                <ul class="list-disc pl-6 text-gray-600 space-y-2">
+                    <li>We use the collected information to create comprehensive backups of your Discord server.</li>
+                    <li>Backups are packaged as ZIP files and delivered through your designated log channel.</li>
+                    <li>For larger files that exceed Discord's file size limits, we use Uploadcare to temporarily store and provide a download link.</li>
+                </ul>
+
+                <h4 class="text-xl font-semibold mt-6 mb-3 text-gray-700">Service Functionality</h4>
+                <ul class="list-disc pl-6 text-gray-600 space-y-2">
+                    <li>We use configuration data to schedule automatic backups according to your preferences.</li>
+                    <li>We monitor backup success rates to ensure the service is functioning properly.</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h3 class="text-2xl font-bold text-gray-800">Data Storage and Security</h3>
+                
+                <h4 class="text-xl font-semibold mt-6 mb-3 text-gray-700">Local Storage</h4>
+                <ul class="list-disc pl-6 text-gray-600 space-y-2">
+                    <li>Server configuration data is stored in a JSON file on our secure servers.</li>
+                    <li>Backup files are temporarily stored during the creation and delivery process, then promptly deleted after successful delivery.</li>
+                </ul>
+
+                <h4 class="text-xl font-semibold mt-6 mb-3 text-gray-700">Third-Party Services</h4>
+                <ul class="list-disc pl-6 text-gray-600 space-y-2">
+                    <li>For large backups, we use Uploadcare as a file hosting service. Files uploaded to Uploadcare are subject to their Privacy Policy.</li>
+                    <li>We use the Discord API to interact with your server, and information shared with Discord is subject to their Privacy Policy.</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h3 class="text-2xl font-bold text-gray-800">Data Retention</h3>
+                <ul class="list-disc pl-6 text-gray-600 space-y-2">
+                    <li><span class="font-semibold">Temporary Files:</span> Backup folders and ZIP files are deleted immediately after successful delivery to your log channel.</li>
+                    <li><span class="font-semibold">Configuration Data:</span> Server configuration data is retained as long as you continue to use the service.</li>
+                    <li><span class="font-semibold">Uploaded Files:</span> Files uploaded to Uploadcare for larger backups remain available via the provided link until manually deleted.</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h3 class="text-2xl font-bold text-gray-800">User Rights</h3>
+                
+                <h4 class="text-xl font-semibold mt-6 mb-3 text-gray-700">Access and Control</h4>
+                <ul class="list-disc pl-6 text-gray-600 space-y-2">
+                    <li>You can view your backup configuration at any time using the /status command.</li>
+                    <li>You can modify your backup settings using the /changetimezone command.</li>
+                    <li>You can deactivate backups at any time using the /deactivate command.</li>
+                    <li>You can completely remove your server from our system using the /removeserver command.</li>
+                </ul>
+
+                <h4 class="text-xl font-semibold mt-6 mb-3 text-gray-700">Data Deletion</h4>
+                <ul class="list-disc pl-6 text-gray-600 space-y-2">
+                    <li>When you use the /removeserver command, all configuration data associated with your server is deleted from our systems.</li>
+                    <li>Existing backup files delivered to your log channel remain your responsibility and can be deleted from Discord at your discretion.</li>
+                    <li>For backups uploaded to Uploadcare, you should retain the provided links if you wish to access or delete these files later.</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h3 class="text-2xl font-bold text-gray-800">International Data Transfers</h3>
+                <p class="text-gray-600">Our services operate globally, and your information may be transferred to and processed in countries other than your own. These countries may have different data protection laws than your country of residence.</p>
+            </div>
+
+            <div class="policy-section">
+                <h3 class="text-2xl font-bold text-gray-800">Updates to This Policy</h3>
+                <p class="text-gray-600">We may update this Privacy Policy from time to time. We will notify users of significant changes through our Discord support server or through direct announcement in your log channel.</p>
+            </div>
+
+            <div class="policy-section">
+                <h3 class="text-2xl font-bold text-gray-800">Contact Us</h3>
+                <p class="text-gray-600">If you have any questions or concerns about this Privacy Policy or our data practices, please contact us through our <a href="https://discord.gg/Xnh5ckQVyV" class="text-indigo-600 hover:text-indigo-800">Discord support server</a>.</p>
+            </div>
+            <div class="mt-12 text-sm text-gray-600 border-t pt-8">
+            <p>BackupBot © 2025 BackupBot Developer Andres99. BackupBot and the BackupBot logo are trademarks of BackupBot Developer Andres99. Discord and the Discord logo are trademarks of Discord Inc., registered in the U.S. and other countries. Uploadcare and the Uploadcare logo are trademarks of Uploadcare Inc., registered in the U.S. and other countries, All other trademarks, logos and copyrights are property of their respective owners. All rights reserved.</p>
+        </div>
+    </section>
+
+    <section class="hero-gradient text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-6">You Ready to Make sure Your Discord Server doesn't fall apart and the info doesn't get deleted?</h2>
+            <p class="text-xl mb-8">AThen Add BackupBot to your server today!, because tomorrow if you don't a Huge Meteor is gonna fall on YOU and on YOUR server, Actually Scrape that add it NOW (/j Love yall)</p>
+            <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
+                <a href="https://andres9890.github.io/serverbackup/" class="bg-white text-indigo-600 px-8 py-4 rounded-md font-semibold hover:bg-gray-100 transition-colors">
+                    Add to your Server <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+                <a href="https://discord.gg/Xnh5ckQVyV" class="bg-gray-800 text-white px-8 py-4 rounded-md font-semibold hover:bg-gray-700 transition-colors">
+                    Join our very cool Support Server <i class="fab fa-discord ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                    <img src="https://pomf2.lain.la/f/28miu6ub.png" alt="BackupBot Logo" class="w-10 h-10">
+                    <span class="text-xl font-bold">BackupBot</span>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="index.html#features" class="text-gray-400 hover:text-white">Features</a>
+                    <a href="index.html#how-to-use" class="text-gray-400 hover:text-white">How To Use</a>
+                    <a href="index.html#commands" class="text-gray-400 hover:text-white">Commands</a>
+                    <a href="index.html#developer" class="text-gray-400 hover:text-white">Developer</a>
+                    <a href="privacy-policy.html" class="text-white font-semibold">Privacy Policy</a>
+                    <a href="tos.html" class="text-gray-200 hover:text-white">Terms Of Service</a>
+                </div>
+                <div class="mt-4 md:mt-0">
+                    <a href="https://discord.gg/Xnh5ckQVyV" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-discord text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-gray-400">
+                <p>© 2025 BackupBot, All rights reserved, if you Don't like our rights You should sybau</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        if (window.location.pathname.endsWith('/privacy-policy.html')) {
+          history.replaceState(null, document.title, '/privacy');
+        }
+      </script>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
