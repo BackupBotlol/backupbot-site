@@ -43,16 +43,23 @@
                 <img src="https://pomf2.lain.la/f/28miu6ub.png" alt="BackupBot Logo" class="w-10 h-10">
                 <span class="text-xl font-bold text-gray-800">BackupBot</span>
             </div>
-            <div class="hidden md:flex space-x-6">
-                <a href="index.html#features" class="text-gray-700 hover:text-indigo-600">Features</a>
-                <a href="index.html#how-to-use" class="text-gray-700 hover:text-indigo-600">How To Use</a>
-                <a href="index.html#commands" class="text-gray-700 hover:text-indigo-600">Commands</a>
-                <a href="index.html#developer" class="text-gray-700 hover:text-indigo-600">Developer</a>
-                <a href="privacy-policy.html" class="text-indigo-600 font-semibold">Privacy Policy</a>
-                <a href="terms.html" class="text-gray-700 hover:text-indigo-600">Terms Of Service</a>
-            </div>
-            <div>
-                <a href="https://andres9890.github.io/serverbackup/" class="hidden md:inline-block bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition-colors">Add to your Server</a>
+            <nav class="bg-white shadow-md">
+                <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+                    <div class="flex items-center space-x-2">
+                        <img src="https://pomf2.lain.la/f/28miu6ub.png" alt="BackupBot Logo" class="w-10 h-10">
+                        <span class="text-xl font-bold text-gray-800">BackupBot</span>
+                    </div>
+                    <div class="hidden md:flex space-x-6">
+                        <a href="/index.html#features" class="text-gray-700 hover:text-indigo-600">Features</a>
+                        <a href="/index.html#how-to-use" class="text-gray-700 hover:text-indigo-600">How To Use</a>
+                        <a href="/index.html#commands" class="text-gray-700 hover:text-indigo-600">Commands</a>
+                        <a href="/index.html#developer" class="text-gray-700 hover:text-indigo-600">Developer</a>
+                        <a href="/privacy-policy.html" class="text-indigo-600 font-semibold">Privacy Policy</a>
+                        <a href="/terms.html" class="text-gray-700 hover:text-indigo-600">Terms Of Service</a>
+                    </div>
+                    <div>
+                        <a href="https://andres9890.github.io/serverbackup/" class="hidden md:inline-block bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition-colors">Add to your Server</a>
+                    </div>
             </div>
         </div>
     </nav>
@@ -194,25 +201,45 @@
                     <img src="https://pomf2.lain.la/f/28miu6ub.png" alt="BackupBot Logo" class="w-10 h-10">
                     <span class="text-xl font-bold">BackupBot</span>
                 </div>
-                <div class="flex space-x-6">
-                    <a href="index.html#features" class="text-gray-400 hover:text-white">Features</a>
-                    <a href="index.html#how-to-use" class="text-gray-400 hover:text-white">How To Use</a>
-                    <a href="index.html#commands" class="text-gray-400 hover:text-white">Commands</a>
-                    <a href="index.html#developer" class="text-gray-400 hover:text-white">Developer</a>
-                    <a href="privacy-policy.html" class="text-white font-semibold">Privacy Policy</a>
-                    <a href="terms.html" class="text-gray-200 hover:text-white">Terms Of Service</a>
-                </div>
-                <div class="mt-4 md:mt-0">
-                    <a href="https://discord.gg/Xnh5ckQVyV" class="text-gray-400 hover:text-white">
-                        <i class="fab fa-discord text-2xl"></i>
-                    </a>
-                </div>
+                <footer class="bg-gray-800 text-white py-8">
+                    <div class="container mx-auto px-6">
+                        <div class="flex flex-col md:flex-row justify-between items-center">
+                            <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                                <img src="https://pomf2.lain.la/f/28miu6ub.png" alt="BackupBot Logo" class="w-10 h-10">
+                                <span class="text-xl font-bold">BackupBot</span>
+                            </div>
+                            <div class="flex space-x-6">
+                                <a href="/index.html#features" class="text-gray-400 hover:text-white">Features</a>
+                                <a href="/index.html#how-to-use" class="text-gray-400 hover:text-white">How To Use</a>
+                                <a href="/index.html#commands" class="text-gray-400 hover:text-white">Commands</a>
+                                <a href="/index.html#developer" class="text-gray-400 hover:text-white">Developer</a>
+                                <a href="/privacy-policy.html" class="text-white font-semibold">Privacy Policy</a>
+                                <a href="/terms.html" class="text-gray-200 hover:text-white">Terms Of Service</a>
+                            </div>
+                            <div class="mt-4 md:mt-0">
+                                <a href="https://discord.gg/Xnh5ckQVyV" class="text-gray-400 hover:text-white">
+                                    <i class="fab fa-discord text-2xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mt-8 text-center text-gray-400">
+                            <p>© 2025 BackupBot, All rights reserved, if you Don't like our rights You should sybau</p>
+                        </div>
+                    </div>
+                </footer>
+                
             </div>
             <div class="mt-8 text-center text-gray-400">
                 <p>© 2025 BackupBot, All rights reserved, if you Don't like our rights You should sybau</p>
             </div>
         </div>
     </footer>
+
+    <script>
+        if (window.location.pathname.endsWith('/privacy-policy.html')) {
+          history.replaceState(null, document.title, '/privacy');
+        }
+      </script>
 
     <script>
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
