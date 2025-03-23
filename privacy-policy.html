@@ -215,12 +215,6 @@
     </footer>
 
     <script>
-        if (window.location.pathname.endsWith('/privacy-policy.html')) {
-          history.replaceState(null, document.title, '/privacy');
-        }
-      </script>
-
-    <script>
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
