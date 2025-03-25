@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BackupBot Authorization</title>
+    <meta http-equiv="refresh" content="0; URL=https://discord.com/oauth2/authorize?client_id=1341454344792309780&permissions=414733158480&integration_type=0&scope=bot">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #5865F2;
+            color: white;
+        }
+        .container {
+            max-width: 600px;
+            padding: 20px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        p {
+            margin-bottom: 30px;
+            font-size: 18px;
+        }
+        .redirect-link {
+            display: inline-block;
+            background-color: white;
+            color: #5865F2;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .redirect-link:hover {
+            background-color: #f0f0f0;
+        }
+        .loading {
+            margin-top: 20px;
+        }
+        .loading span {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background-color: white;
+            border-radius: 50%;
+            margin: 0 5px;
+            animation: bounce 1.5s infinite ease-in-out;
+        }
+        .loading span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        .loading span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1.0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Redirecting to BackupBot</h1>
+        <p>You are being redirected to authorize BackupBot, If you are not redirected automatically, click the button below</p>
+        <a class="redirect-link" href="https://discord.com/oauth2/authorize?client_id=1341454344792309780&permissions=414733158480&integration_type=0&scope=bot">Authorize BackupBot</a>
+        <div class="loading">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <script>
+        window.location.href = "https://discord.com/oauth2/authorize?client_id=1341454344792309780&permissions=414733158480&integration_type=0&scope=bot";
+    </script>
+
+<script>
+        if (window.location.pathname.endsWith('/auth.html')) {
+          history.replaceState(null, document.title, '/botwebsite/auth');
+        }
+    </script>
+
+</body>
+</html>
