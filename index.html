@@ -285,12 +285,6 @@
     </footer>
 
     <script>
-        if (window.location.pathname.endsWith('/index.html')) {
-          history.replaceState(null, document.title, '/index');
-        }
-      </script>
-
-    <script>
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
