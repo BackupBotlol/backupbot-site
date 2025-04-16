@@ -78,10 +78,10 @@
                 <h4 class="text-xl font-semibold mt-6 mb-3 text-gray-700">Server Data</h4>
                 <ul class="list-disc pl-6 text-gray-600 space-y-2">
                     <li><span class="font-semibold">Server Information:</span> When you use the /addserver command, we collect basic information about your Discord server, including server name, description, member count, creation date, boost count, and boost level.</li>
-                    <li><span class="font-semibold">Server Assets:</span> We collect and process server assets including server icon, banner, splash image, and discovery splash (if available).</li>
-                    <li><span class="font-semibold">Channel Structure:</span> We collect information about your server's channels, including names and types (text, voice, categories).</li>
-                    <li><span class="font-semibold">Role Information:</span> We collect role names and their associated permissions.</li>
-                    <li><span class="font-semibold">Role Icons:</span> If roles have custom icons, these are collected during the backup process.</li>
+                    <li><span class="font-semibold">Server Assets:</span> We collect and process server assets including the server's icon, banner, splash image, and discovery splash (if available).</li>
+                    <li><span class="font-semibold">Channel Structure:</span> We collect information about your server's channels, including names and channel types (text, voice, categories).</li>
+                    <li><span class="font-semibold">Role Information:</span> We collect role names and/with their permissions.</li>
+                    <li><span class="font-semibold">Role Icons:</span> If the roles have custom icons, these are collected during the backup process.</li>
                     <li><span class="font-semibold">Custom Emojis and Stickers:</span> We collect all custom emojis and stickers from your server.</li>
                 </ul>
 
@@ -117,21 +117,21 @@
                 
                 <h4 class="text-xl font-semibold mt-6 mb-3 text-gray-700">Local Storage</h4>
                 <ul class="list-disc pl-6 text-gray-600 space-y-2">
-                    <li>Server configuration data is stored in an SQLite Database on our servers.</li>
+                    <li>Server configuration data is stored on an SQLite Database on our servers.</li>
                     <li>Backup files are temporarily stored during the creation and delivery process, then promptly deleted after successful delivery.</li>
                 </ul>
 
                 <h4 class="text-xl font-semibold mt-6 mb-3 text-gray-700">Third-Party Services</h4>
                 <ul class="list-disc pl-6 text-gray-600 space-y-2">
-                    <li>For large backups, we use Uploadcare as a file hosting service. Files uploaded to Uploadcare are subject to their Privacy Policy.</li>
-                    <li>We use the Discord API to interact with your server, and information shared with Discord is subject to their Privacy Policy.</li>
+                    <li>For large backups, we use Uploadcare as a file hosting service. Files uploaded to Uploadcare are subject to their Privacy Policy, which is beyond our control.</li>
+                    <li>We use the Discord Bot API to interact with your server, and information/files shared with Discord are subject to their Privacy Policy, which is beyond our control.</li>
                 </ul>
             </div>
 
             <div class="policy-section">
                 <h3 class="text-2xl font-bold text-gray-800">Data Retention</h3>
                 <ul class="list-disc pl-6 text-gray-600 space-y-2">
-                    <li><span class="font-semibold">Temporary Files:</span> Backup folders and ZIP files are deleted immediately after successful delivery to your log channel.</li>
+                    <li><span class="font-semibold">Temporary Files:</span> Backup folders and ZIP files are deleted from our servers immediately after successful delivery to your log channel.</li>
                     <li><span class="font-semibold">Configuration Data:</span> Server configuration data is retained as long as you continue to use the service.</li>
                     <li><span class="font-semibold">Uploaded Files:</span> Files uploaded to Uploadcare for larger backups remain available via the provided link until manually deleted.</li>
                 </ul>
@@ -146,14 +146,14 @@
                     <li>You can modify your backup settings using the /changetimezone command.</li>
                     <li>You can deactivate backups at any time using the /deactivate command.</li>
                     <li>You can completely remove your server from our system using the /removeserver command.</li>
-                    <li>You can completely choose what's saved and what's not using the /configurebackupcomponents command.</li>
+                    <li>You can modify what's saved and what's not using the /configurebackupcomponents command.</li>
                 </ul>
 
                 <h4 class="text-xl font-semibold mt-6 mb-3 text-gray-700">Data Deletion</h4>
                 <ul class="list-disc pl-6 text-gray-600 space-y-2">
                     <li>When you use the /removeserver command, all configuration data associated with your server is deleted from our systems.</li>
                     <li>Existing backup files delivered to your log channel remain your responsibility and can be deleted from Discord at your discretion.</li>
-                    <li>For backups uploaded to Uploadcare, you should retain the provided links if you wish to access or delete these files later.</li>
+                    <li>For backups uploaded to Uploadcare, you should retain the provided links if you wish to access these files later.</li>
                 </ul>
             </div>
 
@@ -164,7 +164,7 @@
 
             <div class="policy-section">
                 <h3 class="text-2xl font-bold text-gray-800">Updates to This Policy</h3>
-                <p class="text-gray-600">We may update this Privacy Policy from time to time. We will notify users of significant changes through our Discord support server or through direct announcement in your log channel.</p>
+                <p class="text-gray-600">We may update this Privacy Policy from time to time. We will (or won't) notify users of significant changes through our Discord support server or through direct announcement in your log channel.</p>
             </div>
 
             <div class="policy-section">
