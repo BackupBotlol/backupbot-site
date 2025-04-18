@@ -3,51 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BackupBot - Terms of Service for Discord server backup solution">
+    <meta name="keywords" content="Discord, bot, backup, server, protection, automated, BackupBot, terms, service">
+    <meta name="author" content="Andres99">
     <title>BackupBot - Terms of Service</title>
     <link rel="icon" href="images/BackupBot.ico" type="image/x-icon">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .hero-gradient {
-            background: linear-gradient(135deg, #7289da 0%, #4e5d94 100%);
-        }
-        .command-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .command-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-        }
-        .feature-icon {
-            background: #7289da;
-            height: 60px;
-            width: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gray-100 font-sans">
-    <nav class="bg-white shadow-md">
+<body class="bg-gray-100">
+    <div class="menu-overlay" id="menuOverlay"></div>
+    <div class="mobile-menu bg-white shadow-lg p-6" id="mobileMenu">
+        <div class="flex justify-between items-center mb-8">
+            <div class="flex items-center space-x-2">
+                <img src="images/BackupBot.png" alt="BackupBot Logo" class="w-10 h-10">
+                <a href="https://backupbot.org/" class="text-xl font-bold text-gray-800">BackupBot</a>
+            </div>
+            <button id="closeMenu" class="text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+        </div>
+        <div class="flex flex-col space-y-4">
+            <a href="https://backupbot.org/#features" class="text-gray-700 hover:text-indigo-600 py-2 border-b border-gray-200">Features</a>
+            <a href="https://backupbot.org/#how-to-use" class="text-gray-700 hover:text-indigo-600 py-2 border-b border-gray-200">How To Use</a>
+            <a href="https://backupbot.org/#commands" class="text-gray-700 hover:text-indigo-600 py-2 border-b border-gray-200">Commands</a>
+            <a href="https://backupbot.org/#faq" class="text-gray-700 hover:text-indigo-600 py-2 border-b border-gray-200">FAQ</a>
+            <a href="https://backupbot.org/#to-add" class="text-gray-700 hover:text-indigo-600 py-2 border-b border-gray-200">Roadmap</a>
+            <a href="https://backupbot.org/#developer" class="text-gray-700 hover:text-indigo-600 py-2 border-b border-gray-200">Developer</a>
+            <a href="./privacy" class="text-gray-700 hover:text-indigo-600 py-2 border-b border-gray-200">Privacy Policy</a>
+            <a href="./terms" class="text-indigo-600 font-medium py-2 border-b border-gray-200">Terms of Service</a>
+            <div class="pt-4 flex items-center">
+                <span class="mr-3 text-gray-700">Dark Mode</span>
+                <div class="dark-mode-toggle" id="darkModeToggleMobile">
+                    <div class="toggle-circle">
+                        <i class="fas fa-sun text-yellow-500"></i>
+                    </div>
+                </div>
+            </div>
+            <a href="./auth" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition-colors mt-4 text-center">
+                Add to your Server
+            </a>
+        </div>
+    </div>
+
+    <nav class="bg-white shadow-md sticky top-0 z-30 sticky-nav" id="mainNav">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
             <div class="flex items-center space-x-2">
                 <img src="images/BackupBot.png" alt="BackupBot Logo" class="w-10 h-10">
-                <a href="https://backupbotlol.github.io/website/" class="text-xl font-bold text-gray-800 hover:text-indigo-600 transition-colors">BackupBot</a>
+                <a href="https://backupbot.org/" class="text-xl font-bold text-gray-800 hover:text-indigo-600 transition-colors">BackupBot</a>
             </div>
             <div class="hidden md:flex space-x-6">
-                <a href="https://backupbot.org/#features" class="text-gray-700 hover:text-indigo-600">Features</a>
-                <a href="https://backupbot.org/#how-to-use" class="text-gray-700 hover:text-indigo-600">How To Use</a>
-                <a href="https://backupbot.org/#commands" class="text-gray-700 hover:text-indigo-600">Commands</a>
-                <a href="https://backupbot.org/#to-add" class="text-gray-700 hover:text-indigo-600">To Add</a>
-                <a href="https://backupbot.org/#developer" class="text-gray-700 hover:text-indigo-600">Developer</a>
-                <a href="./privacy" class="text-gray-700 hover:text-indigo-600">Privacy Policy</a>
-                <a href="./terms" class="text-indigo-600 hover:text-indigo-700 font-medium">Terms of Service</a>
+                <a href="https://backupbot.org/#features" class="text-gray-700 hover:text-indigo-600 transition-colors">Features</a>
+                <a href="https://backupbot.org/#how-to-use" class="text-gray-700 hover:text-indigo-600 transition-colors">How To Use</a>
+                <a href="https://backupbot.org/#commands" class="text-gray-700 hover:text-indigo-600 transition-colors">Commands</a>
+                <a href="https://backupbot.org/#faq" class="text-gray-700 hover:text-indigo-600 transition-colors">FAQ</a>
+                <a href="https://backupbot.org/#to-add" class="text-gray-700 hover:text-indigo-600 transition-colors">Roadmap</a>
+                <a href="https://backupbot.org/#developer" class="text-gray-700 hover:text-indigo-600 transition-colors">Developer</a>
+                <a href="./privacy" class="text-gray-700 hover:text-indigo-600 transition-colors">Privacy</a>
+                <a href="./terms" class="text-indigo-600 transition-colors">Terms</a>
             </div>
-            <div>
-                <a href="./auth" class="hidden md:inline-block bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition-colors">Add to your Server</a>
+            <div class="flex items-center space-x-4">
+                <div class="hidden md:flex items-center">
+                    <div class="dark-mode-toggle mr-4" id="darkModeToggleDesktop">
+                        <div class="toggle-circle">
+                            <i class="fas fa-sun text-yellow-500"></i>
+                        </div>
+                    </div>
+                </div>
+                <a href="./auth" class="hidden md:inline-block bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition-colors btn">
+                    Add to your Server <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+                <button id="menuButton" class="md:hidden text-gray-700 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
             </div>
         </div>
     </nav>
@@ -194,25 +226,29 @@
         </div>
     </section>
 
-    <footer class="bg-gray-800 text-white py-8">
+    <footer class="bg-gray-800 text-white py-12">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="flex items-center space-x-2 mb-4 md:mb-0">
-                    <img src="images/BackupBot.png" alt="BackupBot Logo" class="w-10 h-10">
-                    <a href="https://backupbotlol.github.io/website/" class="text-xl font-bold text-white hover:text-gray-300 transition-colors">BackupBot</a>
+                <div class="flex items-center space-x-2 mb-6 md:mb-0">
+                    <img src="images/BackupBot.png" alt="BackupBot Logo" class="w-12 h-12">
+                    <a href="https://backupbot.org/" class="text-2xl font-bold text-white hover:text-gray-300 transition-colors">BackupBot</a>
                 </div>
-                <div class="flex space-x-6">
-                    <a href="https://backupbot.org/#features" class="text-gray-400 hover:text-white">Features</a>
-                    <a href="https://backupbot.org/#how-to-use" class="text-gray-400 hover:text-white">How To Use</a>
-                    <a href="https://backupbot.org/#commands" class="text-gray-400 hover:text-white">Commands</a>
-                    <a href="https://backupbot.org/#to-add" class="text-gray-400 hover:text-white">To Add</a>
-                    <a href="https://backupbot.org/#developer" class="text-gray-400 hover:text-white">Developer</a>
-                    <a href="./privacy" class="text-gray-400 hover:text-white">Privacy Policy</a>
-                    <a href="./terms" class="text-white font-semibold">Terms of Service</a>
+                <div class="flex flex-wrap justify-center gap-4 mb-6 md:mb-0">
+                    <a href="https://backupbot.org/#features" class="text-gray-400 hover:text-white transition-colors">Features</a>
+                    <a href="https://backupbot.org/#how-to-use" class="text-gray-400 hover:text-white transition-colors">How To Use</a>
+                    <a href="https://backupbot.org/#commands" class="text-gray-400 hover:text-white transition-colors">Commands</a>
+                    <a href="https://backupbot.org/#faq" class="text-gray-400 hover:text-white transition-colors">FAQ</a>
+                    <a href="https://backupbot.org/#to-add" class="text-gray-400 hover:text-white transition-colors">Roadmap</a>
+                    <a href="https://backupbot.org/#developer" class="text-gray-400 hover:text-white transition-colors">Developer</a>
+                    <a href="./privacy" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="./terms" class="text-white transition-colors">Terms of Service</a>
                 </div>
-                <div class="mt-4 md:mt-0">
-                    <a href="https://github.com/BackupBotlol" class="text-gray-400 hover:text-white">
+                <div class="flex space-x-4">
+                    <a href="https://github.com/BackupBotlol" class="text-gray-400 hover:text-white transition-colors">
                         <i class="fab fa-github text-2xl"></i>
+                    </a>
+                    <a href="https://discord.gg/Xnh5ckQVyV" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-discord text-2xl"></i>
                     </a>
                 </div>
             </div>
@@ -222,15 +258,10 @@
         </div>
     </footer>
 
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
