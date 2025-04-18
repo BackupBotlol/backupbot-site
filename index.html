@@ -3,150 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BackupBot - Protect your Discord server with automated backups for channels, roles, emojis, and more">
+    <meta name="keywords" content="Discord, bot, backup, server, protection, automated, BackupBot">
+    <meta name="author" content="Andres99">
+    <meta property="og:title" content="BackupBot - Discord Server Backup Solution">
+    <meta property="og:description" content="Protect your Discord server with automated backups for channels, roles, emojis, and more!">
+    <meta property="og:image" content="images/BackupBot-wide.png">
+    <meta property="og:url" content="https://backupbot.org">
+    <meta name="twitter:card" content="summary_large_image">
     <title>BackupBot - Server data saver</title>
     <link rel="icon" href="images/BackupBot.ico" type="image/x-icon">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .hero-gradient {
-            background: linear-gradient(135deg, #7289da 0%, #4e5d94 100%);
-        }
-        .command-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .command-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-        }
-        .feature-icon {
-            background: #7289da;
-            height: 60px;
-            width: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-        }
-        .mobile-menu {
-            transition: transform 0.3s ease-in-out;
-            transform: translateX(-100%);
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100vh;
-            width: 80%;
-            max-width: 300px;
-            z-index: 50;
-            overflow-y: auto;
-        }
-        .mobile-menu.active {
-            transform: translateX(0);
-        }
-        .menu-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 40;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-        }
-        .menu-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-        .btn {
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        .btn:after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 5px;
-            height: 5px;
-            background: rgba(255, 255, 255, 0.5);
-            opacity: 0;
-            border-radius: 100%;
-            transform: scale(1, 1) translate(-50%);
-            transform-origin: 50% 50%;
-        }
-        .btn:hover:after {
-            animation: ripple 1s ease-out;
-        }
-        @keyframes ripple {
-            0% {
-                transform: scale(0, 0);
-                opacity: 0.5;
-            }
-            100% {
-                transform: scale(20, 20);
-                opacity: 0;
-            }
-        }
-        #to-add .grid {
-            display: grid;
-            grid-template-columns: 1fr;
-        }
-        @media (min-width: 768px) {
-            #to-add .grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gray-100 font-sans">
+<body class="bg-gray-100">
     <div class="menu-overlay" id="menuOverlay"></div>
     <div class="mobile-menu bg-white shadow-lg p-6" id="mobileMenu">
         <div class="flex justify-between items-center mb-8">
             <div class="flex items-center space-x-2">
                 <img src="images/BackupBot.png" alt="BackupBot Logo" class="w-10 h-10">
-                <a href="https://backupbotlol.github.io/website/" class="text-xl font-bold text-gray-800">BackupBot</a>
+                <a href="https://backupbot.org/" class="text-xl font-bold text-gray-800">BackupBot</a>
             </div>
             <button id="closeMenu" class="text-gray-500 hover:text-gray-700">
                 <i class="fas fa-times text-2xl"></i>
             </button>
         </div>
         <div class="flex flex-col space-y-4">
-            <a href="https://backupbot.org/#features" class="text-gray-700 hover:text-indigo-600 py-2 border-b border-gray-200">Features</a>
-            <a href="https://backupbot.org/#how-to-use" class="text-gray-700 hover:text-indigo-600 py-2 border-b border-gray-200">How To Use</a>
-            <a href="https://backupbot.org/#commands" class="text-gray-700 hover:text-indigo-600 py-2 border-b border-gray-200">Commands</a>
-            <a href="https://backupbot.org/#to-add" class="text-gray-700 hover:text-indigo-600 py-2 border-b border-gray-200">To Add</a>
-            <a href="https://backupbot.org/#developer" class="text-gray-700 hover:text-indigo-600 py-2 border-b border-gray-200">Developer</a>
+            <a href="#features" class="text-gray-700 hover:text-indigo-600 py-2 border-b border-gray-200">Features</a>
+            <a href="#how-to-use" class="text-gray-700 hover:text-indigo-600 py-2 border-b border-gray-200">How To Use</a>
+            <a href="#commands" class="text-gray-700 hover:text-indigo-600 py-2 border-b border-gray-200">Commands</a>
+            <a href="#faq" class="text-gray-700 hover:text-indigo-600 py-2 border-b border-gray-200">FAQ</a>
+            <a href="#to-add" class="text-gray-700 hover:text-indigo-600 py-2 border-b border-gray-200">Roadmap</a>
+            <a href="#developer" class="text-gray-700 hover:text-indigo-600 py-2 border-b border-gray-200">Developer</a>
             <a href="./privacy" class="text-gray-700 hover:text-indigo-600 py-2 border-b border-gray-200">Privacy Policy</a>
             <a href="./terms" class="text-gray-700 hover:text-indigo-600 py-2 border-b border-gray-200">Terms of Service</a>
+            <div class="pt-4 flex items-center">
+                <span class="mr-3 text-gray-700">Dark Mode</span>
+                <div class="dark-mode-toggle" id="darkModeToggleMobile">
+                    <div class="toggle-circle">
+                        <i class="fas fa-sun text-yellow-500"></i>
+                    </div>
+                </div>
+            </div>
             <a href="./auth" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition-colors mt-4 text-center">
                 Add to your Server
             </a>
         </div>
     </div>
 
-    <nav class="bg-white shadow-md sticky top-0 z-30">
+    <nav class="bg-white shadow-md sticky top-0 z-30 sticky-nav" id="mainNav">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
             <div class="flex items-center space-x-2">
                 <img src="images/BackupBot.png" alt="BackupBot Logo" class="w-10 h-10">
-                <a href="https://backupbotlol.github.io/website/" class="text-xl font-bold text-gray-800 hover:text-indigo-600 transition-colors">BackupBot</a>
+                <a href="https://backupbot.org/" class="text-xl font-bold text-gray-800 hover:text-indigo-600 transition-colors">BackupBot</a>
             </div>
             <div class="hidden md:flex space-x-6">
-                <a href="https://backupbot.org/#features" class="text-gray-700 hover:text-indigo-600 transition-colors">Features</a>
-                <a href="https://backupbot.org/#how-to-use" class="text-gray-700 hover:text-indigo-600 transition-colors">How To Use</a>
-                <a href="https://backupbot.org/#commands" class="text-gray-700 hover:text-indigo-600 transition-colors">Commands</a>
-                <a href="https://backupbot.org/#to-add" class="text-gray-700 hover:text-indigo-600 transition-colors">To Add</a>
-                <a href="https://backupbot.org/#developer" class="text-gray-700 hover:text-indigo-600 transition-colors">Developer</a>
-                <a href="./privacy" class="text-gray-700 hover:text-indigo-600 transition-colors">Privacy Policy</a>
-                <a href="./terms" class="text-gray-700 hover:text-indigo-600 transition-colors">Terms of Service</a>
+                <a href="#features" class="text-gray-700 hover:text-indigo-600 transition-colors">Features</a>
+                <a href="#how-to-use" class="text-gray-700 hover:text-indigo-600 transition-colors">How To Use</a>
+                <a href="#commands" class="text-gray-700 hover:text-indigo-600 transition-colors">Commands</a>
+                <a href="#faq" class="text-gray-700 hover:text-indigo-600 transition-colors">FAQ</a>
+                <a href="#to-add" class="text-gray-700 hover:text-indigo-600 transition-colors">Roadmap</a>
+                <a href="#developer" class="text-gray-700 hover:text-indigo-600 transition-colors">Developer</a>
+                <a href="./privacy" class="text-gray-700 hover:text-indigo-600 transition-colors">Privacy</a>
+                <a href="./terms" class="text-gray-700 hover:text-indigo-600 transition-colors">Terms</a>
             </div>
-            <div class="flex items-center">
-                <a href="./auth" class="hidden md:inline-block bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition-colors btn">Add to your Server</a>
+            <div class="flex items-center space-x-4">
+                <div class="hidden md:flex items-center">
+                    <div class="dark-mode-toggle mr-4" id="darkModeToggleDesktop">
+                        <div class="toggle-circle">
+                            <i class="fas fa-sun text-yellow-500"></i>
+                        </div>
+                    </div>
+                </div>
+                <a href="./auth" class="hidden md:inline-block bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition-colors btn">
+                    Add to your Server <i class="fas fa-arrow-right ml-2"></i>
+                </a>
                 <button id="menuButton" class="md:hidden text-gray-700 focus:outline-none">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
@@ -156,9 +91,9 @@
 
     <section class="hero-gradient text-white py-20">
         <div class="container mx-auto px-6 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">Protect Your Discord Server's Data</h1>
-            <p class="text-xl mb-8 max-w-3xl mx-auto">Automated backups for your server's assets, roles, channels, and more!</p>
-            <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight fade-in">Protect Your Discord Server's Data</h1>
+            <p class="text-xl mb-8 max-w-3xl mx-auto fade-in">Automated backups for your server's assets, roles, channels, and more, Never lose your server's foundation again!</p>
+            <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4 fade-in">
                 <a href="./auth" class="bg-white text-indigo-600 px-6 py-3 rounded-md font-semibold hover:bg-gray-100 transition-colors btn">
                     Add to your Server <i class="fas fa-arrow-right ml-2"></i>
                 </a>
@@ -169,76 +104,128 @@
         </div>
     </section>
 
-    <section id="features" class="py-16 bg-white">
+    <section id="stats" class="py-12 bg-white">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Bot Features</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="text-center p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                    <div class="feature-icon">
-                        <i class="fas fa-clock text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Scheduled Backups</h3>
-                    <p class="text-gray-600">automated backups for your server with customizable timezone/frequency/components settings and more!</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="p-6">
+                    <div class="stat-counter" id="serversCount" data-count="22">0</div>
+                    <p class="text-gray-600 text-lg">Servers Protected</p>
                 </div>
-                <div class="text-center p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                    <div class="feature-icon">
-                        <i class="fas fa-cloud-download-alt text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Comprehensive Backups</h3>
-                    <p class="text-gray-600">Backup channels, roles, emojis, stickers, and server assets all in one ZIP file (or multiple)</p>
+                <div class="p-6">
+                    <div class="stat-counter" id="backupsCount" data-count="33">0</div>
+                    <p class="text-gray-600 text-lg">Backups Created</p>
                 </div>
-                <div class="text-center p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Server Data Protection</h3>
-                    <p class="text-gray-600">Keep your server safe with a very reliable backup solution in case of something</p>
+                <div class="p-6">
+                    <div class="stat-counter" id="dataSavedCount" data-count="1">0</div>
+                    <p class="text-gray-600 text-lg">GB of Data Saved</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="how-to-use" class="py-16 bg-gray-100">
+    <section id="features" class="py-16 bg-gray-100">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">How To Use</h2>
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">Bot Features</h2>
+            <p class="text-gray-600 text-center max-w-3xl mx-auto mb-12">BackupBot is designed to provide peace of mind with comprehensive backup solutions for your Discord server.</p>
+            <div class="feature-grid gap-8">
+                <div class="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow hover-scale">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Scheduled Backups</h3>
+                    <p class="text-gray-600">Automated backups with customizable timezone, frequency, and component settings to fit your needs.</p>
+                </div>
+                <div class="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow hover-scale">
+                    <div class="feature-icon">
+                        <i class="fas fa-cloud-download-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Comprehensive Backups</h3>
+                    <p class="text-gray-600">Back up channels, roles, emojis, stickers, and server assets all in one ZIP file or as separate ZIP files.</p>
+                </div>
+                <div class="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow hover-scale">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Server Data Protection</h3>
+                    <p class="text-gray-600">Keep your server safe with a reliable backup solution that preserves your server.</p>
+                </div>
+                <div class="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow hover-scale">
+                    <div class="feature-icon">
+                        <i class="fas fa-cog text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Flexible Configuration</h3>
+                    <p class="text-gray-600">Choose what to backup, how often, and where to send the files, Complete control over your server's backups.</p>
+                </div>
+                <div class="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow hover-scale">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Easy Recovery</h3>
+                    <p class="text-gray-600">When disaster strikes (or your stuff gets nuked), get back on track faster than ever with our backup files that make restoration simple.</p>
+                </div>
+                <div class="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow hover-scale">
+                    <div class="feature-icon">
+                        <i class="fas fa-lock text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Secure Delivery</h3>
+                    <p class="text-gray-600">Backups are delivered directly to your desired Discord log channel with cloud storage for larger files.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-to-use" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">How To Use</h2>
+            <p class="text-gray-600 text-center max-w-3xl mx-auto mb-12">Getting started with BackupBot is pretty easy, Follow these simple steps to secure your server.</p>
             <div class="max-w-3xl mx-auto">
-                <div class="flex flex-col md:flex-row items-center mb-12 bg-white p-6 rounded-lg shadow-sm">
+                <div class="flex flex-col md:flex-row items-center mb-12 bg-gray-50 p-6 rounded-lg shadow-sm hover-scale">
                     <div class="md:w-1/4 flex justify-center mb-6 md:mb-0">
                         <div class="h-16 w-16 rounded-full bg-indigo-600 flex items-center justify-center text-white text-2xl font-bold">1</div>
                     </div>
                     <div class="md:w-3/4">
                         <h3 class="text-xl font-semibold mb-2">Add the Bot to Your Server</h3>
-                        <p class="text-gray-600">Click the "Add to your Server" button to authorize the bot in your server</p>
+                        <p class="text-gray-600">Click the "Add to your Server" button at the top of this page to authorize BackupBot with the necessary permissions.</p>
                     </div>
                 </div>
-                <div class="flex flex-col md:flex-row items-center mb-12 bg-white p-6 rounded-lg shadow-sm">
+                <div class="flex flex-col md:flex-row items-center mb-12 bg-gray-50 p-6 rounded-lg shadow-sm hover-scale">
                     <div class="md:w-1/4 flex justify-center mb-6 md:mb-0">
                         <div class="h-16 w-16 rounded-full bg-indigo-600 flex items-center justify-center text-white text-2xl font-bold">2</div>
                     </div>
                     <div class="md:w-3/4">
                         <h3 class="text-xl font-semibold mb-2">Configure Backup Settings</h3>
-                        <p class="text-gray-600">Use the <code class="bg-gray-200 px-1 py-0.5 rounded">
-                        /addserver</code> command to set up a log channel and a frequency for how many times a backup is made and a timezone for your backups</p>
+                        <p class="text-gray-600">Use the <code class="bg-blue-200 px-1 py-0.5 rounded">
+                        /addserver</code> command to set up a log channel, backup frequency, and timezone for your scheduled backups.</p>
                     </div>
                 </div>
-                <div class="flex flex-col md:flex-row items-center bg-white p-6 rounded-lg shadow-sm">
+                <div class="flex flex-col md:flex-row items-center mb-12 bg-gray-50 p-6 rounded-lg shadow-sm hover-scale">
                     <div class="md:w-1/4 flex justify-center mb-6 md:mb-0">
                         <div class="h-16 w-16 rounded-full bg-indigo-600 flex items-center justify-center text-white text-2xl font-bold">3</div>
                     </div>
                     <div class="md:w-3/4">
-                        <h3 class="text-xl font-semibold mb-2">Now Sit Back like Slickback and Relax</h3>
-                        <p class="text-gray-600">The bot will automatically create automated backups of your server and send them to the log channel</p>
+                        <h3 class="text-xl font-semibold mb-2">Customize Your Backup Components</h3>
+                        <p class="text-gray-600">Use <code class="bg-blue-200 px-1 py-0.5 rounded">/configurebackupcomponents</code> to choose exactly what gets saved and not saved in your server backups.</p>
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row items-center bg-gray-50 p-6 rounded-lg shadow-sm hover-scale">
+                    <div class="md:w-1/4 flex justify-center mb-6 md:mb-0">
+                        <div class="h-16 w-16 rounded-full bg-indigo-600 flex items-center justify-center text-white text-2xl font-bold">4</div>
+                    </div>
+                    <div class="md:w-3/4">
+                        <h3 class="text-xl font-semibold mb-2">Relax and pop a glass</h3>
+                        <p class="text-gray-600">BackupBot will automatically create backups of your server and send them to your desired log channel on schedule.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="commands" class="py-16 bg-white">
+    <section id="commands" class="py-16 bg-gray-100">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Available Commands</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="command-card bg-gray-50 p-6 rounded-lg shadow-sm">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">Available Commands</h2>
+            <p class="text-gray-600 text-center max-w-3xl mx-auto mb-12">BackupBot offers a variety of commands to help you manage your server backups effectively.</p>
+            <div class="command-grid gap-6">
+                <div class="command-card bg-white p-6 rounded-lg shadow-sm">
                     <div class="flex items-center mb-4">
                         <div class="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center text-white mr-4">
                             <i class="fas fa-info-circle"></i>
@@ -247,16 +234,16 @@
                     </div>
                     <p class="text-gray-600">Display all available commands and their descriptions</p>
                 </div>
-                <div class="command-card bg-gray-50 p-6 rounded-lg shadow-sm">
+                <div class="command-card bg-white p-6 rounded-lg shadow-sm">
                     <div class="flex items-center mb-4">
                         <div class="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center text-white mr-4">
                             <i class="fas fa-plus"></i>
                         </div>
                         <h3 class="text-xl font-semibold">/addserver</h3>
                     </div>
-                    <p class="text-gray-600">Add this server to the backup list and set the log channel where backup files will be sent and set the timezone</p>
+                    <p class="text-gray-600">Add your server to the backup list and set the log channel where backup files will be sent and the timezone and frequency</p>
                 </div>
-                <div class="command-card bg-gray-50 p-6 rounded-lg shadow-sm">
+                <div class="command-card bg-white p-6 rounded-lg shadow-sm">
                     <div class="flex items-center mb-4">
                         <div class="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center text-white mr-4">
                             <i class="fas fa-play"></i>
@@ -265,7 +252,7 @@
                     </div>
                     <p class="text-gray-600">Activate the backup scheduler and run an immediate backup</p>
                 </div>
-                <div class="command-card bg-gray-50 p-6 rounded-lg shadow-sm">
+                <div class="command-card bg-white p-6 rounded-lg shadow-sm">
                     <div class="flex items-center mb-4">
                         <div class="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center text-white mr-4">
                             <i class="fas fa-pause"></i>
@@ -274,7 +261,7 @@
                     </div>
                     <p class="text-gray-600">Deactivate the backup scheduler for your server</p>
                 </div>
-                <div class="command-card bg-gray-50 p-6 rounded-lg shadow-sm">
+                <div class="command-card bg-white p-6 rounded-lg shadow-sm">
                     <div class="flex items-center mb-4">
                         <div class="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center text-white mr-4">
                             <i class="fas fa-info"></i>
@@ -283,7 +270,7 @@
                     </div>
                     <p class="text-gray-600">Check if the backup scheduler is active and when the next backup is scheduled</p>
                 </div>
-                <div class="command-card bg-gray-50 p-6 rounded-lg shadow-sm">
+                <div class="command-card bg-white p-6 rounded-lg shadow-sm">
                     <div class="flex items-center mb-4">
                         <div class="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center text-white mr-4">
                             <i class="fas fa-trash"></i>
@@ -292,7 +279,7 @@
                     </div>
                     <p class="text-gray-600">Remove your server from the backup list completely</p>
                 </div>
-                <div class="command-card bg-gray-50 p-6 rounded-lg shadow-sm">
+                <div class="command-card bg-white p-6 rounded-lg shadow-sm">
                     <div class="flex items-center mb-4">
                         <div class="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center text-white mr-4">
                             <i class="fas fa-globe"></i>
@@ -301,7 +288,7 @@
                     </div>
                     <p class="text-gray-600">Change the timezone for backup scheduling</p>
                 </div>
-                <div class="command-card bg-gray-50 p-6 rounded-lg shadow-sm">
+                <div class="command-card bg-white p-6 rounded-lg shadow-sm">
                     <div class="flex items-center mb-4">
                         <div class="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center text-white mr-4">
                             <i class="fas fa-calendar-alt"></i>
@@ -310,7 +297,7 @@
                     </div>
                     <p class="text-gray-600">Change how often server backups are created (hourly, daily, weekly, monthly, yearly)</p>
                 </div>
-                <div class="command-card bg-gray-50 p-6 rounded-lg shadow-sm">
+                <div class="command-card bg-white p-6 rounded-lg shadow-sm">
                     <div class="flex items-center mb-4">
                         <div class="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center text-white mr-4">
                             <i class="fas fa-wrench"></i>
@@ -319,7 +306,7 @@
                     </div>
                     <p class="text-gray-600">Choose what gets saved in your server backups (server assets, channels, roles, emojis, stickers)</p>
                 </div>
-                <div class="command-card bg-gray-50 p-6 rounded-lg shadow-sm">
+                <div class="command-card bg-white p-6 rounded-lg shadow-sm">
                     <div class="flex items-center mb-4">
                         <div class="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center text-white mr-4">
                             <i class="fas fa-file"></i>
@@ -328,14 +315,68 @@
                     </div>
                     <p class="text-gray-600">Choose if backups should be sent as separate ZIP files or as a single ZIP file</p>
                 </div>
-                <div class="command-card bg-gray-50 p-6 rounded-lg shadow-sm">
-                    <div class="flex items-center mb-4">
-                        <div class="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center text-white mr-4">
-                            <i class="fas fa-network-wired"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold">/ping</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">Frequently Asked Questions</h2>
+            <p class="text-gray-600 text-center max-w-3xl mx-auto mb-12">Got questions? We've got answers. If you don't find what you're looking for, join our support server!</p>
+            <div class="max-w-3xl mx-auto space-y-4">
+                <div class="faq-item bg-white shadow-sm">
+                    <div class="faq-question bg-white">
+                        <span>How often can I schedule backups?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
                     </div>
-                    <p class="text-gray-600">Test the bot's response time</p>
+                    <div class="faq-answer">
+                        <p class="text-gray-600">BackupBot allows you to schedule backups hourly, daily, weekly, monthly, or even yearly, You can customize the exact timing based on your needs and the specified timezone.</p>
+                    </div>
+                </div>
+                <div class="faq-item bg-white shadow-sm">
+                    <div class="faq-question bg-white">
+                        <span>What happens if my backup file is too large?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-600">If your backup exceeds Discord's file size limit, BackupBot will automatically upload it to secure cloud storage (Uploadcare) and provides you with a download link in your log channel.</p>
+                    </div>
+                </div>
+                <div class="faq-item bg-white shadow-sm">
+                    <div class="faq-question bg-white">
+                        <span>Does BackupBot save message history?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-600">No, Currently, BackupBot focuses on server structure, roles, channels, emojis, and server assets, Message history backup is not included in our service due to Discord API limitations and privacy considerations.</p>
+                    </div>
+                </div>
+                <div class="faq-item bg-white shadow-sm">
+                    <div class="faq-question bg-white">
+                        <span>What permissions does BackupBot need?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-600">BackupBot requires some permissions to properly backup all server components, This is necessary to access role configurations, channel settings, and server assets, All permissions are used solely for the backup process and are not used/shared anywhere else.</p>
+                    </div>
+                </div>
+                <div class="faq-item bg-white shadow-sm">
+                    <div class="faq-question bg-white">
+                        <span>How secure are my server backups?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-600">Your backups are delivered directly to your specified Discord channel, which means you control who has access to them, For larger files stored on Uploadcare, unique links are generated that are only shared in your private log channel, We do not store backup files on our servers after successful delivery.</p>
+                    </div>
+                </div>
+                <div class="faq-item bg-white shadow-sm">
+                    <div class="faq-question bg-white">
+                        <span>Is BackupBot free to use?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-600">Yes, BackupBot is currently free to use for all servers, We may introduce premium features in the future, but our core backup functionality will remain accessible to everyone (unless some big company tries to buy it).</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -343,14 +384,18 @@
 
     <section id="to-add" class="py-16 bg-gray-100">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">To Add</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="text-center p-6 bg-gray-50 rounded-lg shadow-sm">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">Feature Roadmap</h2>
+            <p class="text-gray-600 text-center max-w-3xl mx-auto mb-12">We're constantly improving BackupBot, Here's what we're working on next.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-6 bg-white rounded-lg shadow-sm hover-scale">
                     <div class="feature-icon">
                         <i class="fas fa-calendar text-white text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2">Change the timezone names</h3>
-                    <p class="text-gray-600">from city names to actual timezone names</p>
+                    <h3 class="text-xl font-semibold mb-2">Improved Timezone Interface</h3>
+                    <p class="text-gray-600">Updating from city names to standard timezone names for better clarity and usability.</p>
+                    <div class="mt-4">
+                        <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">Coming Soon</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -361,7 +406,7 @@
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Developer</h2>
             <div class="flex flex-col md:flex-row items-center justify-center">
                 <div class="md:w-1/3 mb-8 md:mb-0">
-                    <img src="images/Andres99.png" alt="Andres99's pfp" class="rounded-full mx-auto shadow-lg">
+                    <img src="images/Andres99.png" alt="Andres99's pfp" class="rounded-full mx-auto shadow-lg w-48 h-48 object-cover border-4 border-indigo-600 hover-scale transition-all">
                 </div>
                 <div class="md:w-2/3 md:pl-12">
                     <h3 class="text-3xl font-bold mb-4 text-center md:text-left">Andres99</h3>
@@ -381,8 +426,8 @@
 
     <section class="hero-gradient text-white py-16">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold mb-6">You Ready to Make sure Your Discord Server doesn't fall apart?</h2>
-            <p class="text-xl mb-8 max-w-3xl mx-auto">Then Add BackupBot to your server today!, because tomorrow if you don't a Huge Meteor is gonna fall on YOU and on YOUR server, Actually scrape that add it NOW (/j Love yall)</p>
+            <h2 class="text-3xl font-bold mb-6">Ready to Protect Your Discord Server?</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">Add BackupBot to your server today and gain peace of mind knowing your community's foundation is secure!</p>
             <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
                 <a href="./auth" class="bg-white text-indigo-600 px-8 py-4 rounded-md font-semibold hover:bg-gray-100 transition-colors btn">
                     Add to your Server <i class="fas fa-arrow-right ml-2"></i>
@@ -394,74 +439,42 @@
         </div>
     </section>
 
-    <footer class="bg-gray-800 text-white py-8">
+    <footer class="bg-gray-800 text-white py-12">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="flex items-center space-x-2 mb-4 md:mb-0">
-                    <img src="images/BackupBot.png" alt="BackupBot Logo" class="w-10 h-10">
-                    <a href="https://backupbotlol.github.io/website/" class="text-xl font-bold text-white hover:text-gray-300 transition-colors">BackupBot</a>
+                <div class="flex items-center space-x-2 mb-6 md:mb-0">
+                    <img src="images/BackupBot.png" alt="BackupBot Logo" class="w-12 h-12">
+                    <a href="https://backupbot.org/" class="text-2xl font-bold text-white hover:text-gray-300 transition-colors">BackupBot</a>
                 </div>
-                <div class="flex flex-wrap justify-center space-x-4 space-y-2 md:space-y-0">
-                    <a href="https://backupbot.org/#features" class="text-gray-400 hover:text-white transition-colors">Features</a>
-                    <a href="https://backupbot.org/#how-to-use" class="text-gray-400 hover:text-white transition-colors">How To Use</a>
-                    <a href="https://backupbot.org/#commands" class="text-gray-400 hover:text-white transition-colors">Commands</a>
-                    <a href="https://backupbot.org/#to-add" class="text-gray-400 hover:text-white transition-colors">To Add</a>
-                    <a href="https://backupbot.org/#developer" class="text-gray-400 hover:text-white transition-colors">Developer</a>
+                <div class="flex flex-wrap justify-center gap-4 mb-6 md:mb-0">
+                    <a href="#features" class="text-gray-400 hover:text-white transition-colors">Features</a>
+                    <a href="#how-to-use" class="text-gray-400 hover:text-white transition-colors">How To Use</a>
+                    <a href="#commands" class="text-gray-400 hover:text-white transition-colors">Commands</a>
+                    <a href="#faq" class="text-gray-400 hover:text-white transition-colors">FAQ</a>
+                    <a href="#to-add" class="text-gray-400 hover:text-white transition-colors">Roadmap</a>
+                    <a href="#developer" class="text-gray-400 hover:text-white transition-colors">Developer</a>
                     <a href="./privacy" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
                     <a href="./terms" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
                 </div>
-                <div class="mt-4 md:mt-0">
+                <div class="flex space-x-4">
                     <a href="https://github.com/BackupBotlol" class="text-gray-400 hover:text-white transition-colors">
                         <i class="fab fa-github text-2xl"></i>
+                    </a>
+                    <a href="https://discord.gg/Xnh5ckQVyV" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-discord text-2xl"></i>
                     </a>
                 </div>
             </div>
             <div class="mt-8 text-center text-gray-400">
-                <p>© 2025 BackupBot, All rights reserved, if you Don't like our rights you should sybau</p>
+                <p>Â© 2025 BackupBot, All rights reserved, if you Don't like our rights you should sybau</p>
             </div>
         </div>
     </footer>
 
-    <script>
-        const menuButton = document.getElementById('menuButton');
-        const closeMenu = document.getElementById('closeMenu');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const menuOverlay = document.getElementById('menuOverlay');
-        const mobileMenuLinks = document.querySelectorAll('#mobileMenu a[href^="#"]');
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
 
-        menuButton.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
-            menuOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
-
-        function closeMenuFunction() {
-            mobileMenu.classList.remove('active');
-            menuOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        closeMenu.addEventListener('click', closeMenuFunction);
-        menuOverlay.addEventListener('click', closeMenuFunction);
-
-        mobileMenuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                closeMenuFunction();
-                const targetId = link.getAttribute('href');
-                document.querySelector(targetId).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
