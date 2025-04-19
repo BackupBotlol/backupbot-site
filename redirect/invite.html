@@ -2,93 +2,132 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="BackupBot - Protect your Discord server with automated backups for channels, roles, emojis, and more">
-    <meta name="keywords" content="Discord, bot, backup, server, protection, automated, data, BackupBot, Authorization">
+    <meta name="keywords" content="Discord, bot, backup, server, protection, automated, data, BackupBot, Support">
     <meta name="author" content="Andres99">
-    <meta property="og:title" content="Support Server Invite">
-    <meta property="og:description" content="Join our Discord support server!">
+    <meta property="og:title" content="BackupBot Support Server">
+    <meta property="og:description" content="Join our Discord support server for support with BackupBot">
     <meta property="og:url" content="https://backupbot.org/invite">
-    <title>Support Server Invite</title>
-    <link rel="icon" href="images/BackupBot.ico" type="image/x-icon">
-    <meta http-equiv="refresh" content="0; URL=https://discord.gg/Xnh5ckQVyV">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: #5865F2;
-            color: white;
-        }
-        .container {
-            max-width: 600px;
-            padding: 20px;
-        }
-        h1 {
-            margin-bottom: 20px;
-        }
-        p {
-            margin-bottom: 30px;
-            font-size: 18px;
-        }
-        .redirect-link {
-            display: inline-block;
-            background-color: white;
-            color: #5865F2;
-            padding: 12px 24px;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-        .redirect-link:hover {
-            background-color: #f0f0f0;
-        }
-        .loading {
-            margin-top: 20px;
-        }
-        .loading span {
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            background-color: white;
-            border-radius: 50%;
-            margin: 0 5px;
-            animation: bounce 1.5s infinite ease-in-out;
-        }
-        .loading span:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-        .loading span:nth-child(3) {
-            animation-delay: 0.4s;
-        }
-        @keyframes bounce {
-            0%, 80%, 100% { transform: scale(0); }
-            40% { transform: scale(1.0); }
-        }
-    </style>
+    <title>BackupBot Support Server</title>
+    <link rel="icon" href="../images/BackupBot.ico" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <meta http-equiv="refresh" content="5; URL=https://discord.gg/Xnh5ckQVyV">
 </head>
-<body>
-    <div class="container">
-        <h1>Redirecting to Support server</h1>
-        <p>You are being redirected to the Discord support server of BackupBot, If you are not redirected automatically, click the button below</p>
-        <a class="redirect-link" href="https://discord.gg/Xnh5ckQVyV">Join the support server</a>
-        <div class="loading">
-            <span></span>
-            <span></span>
-            <span></span>
+<body class="bg-gray-100">
+    <div class="menu-overlay" id="menuOverlay"></div>
+    <div class="mobile-menu bg-white shadow-lg p-6" id="mobileMenu">
+        <div class="flex justify-between items-center mb-8">
+            <div class="flex items-center space-x-2">
+                <img src="../images/BackupBot.png" alt="BackupBot Logo" class="w-10 h-10">
+                <a href="https://backupbot.org/" class="text-xl font-bold text-gray-800">BackupBot</a>
+            </div>
+            <button id="closeMenu" class="text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
         </div>
-        <div class="mt-8 text-center text-gray-400">
-                <p>© 2025 BackupBot, All rights reserved, if you Don't like our rights you should sybau</p>
+        <div class="flex flex-col space-y-4">
+            <a href="../#features" class="text-gray-700 hover:text-indigo-600 py-2 border-b border-gray-200">Features</a>
+            <a href="../#how-to-use" class="text-gray-700 hover:text-indigo-600 py-2 border-b border-gray-200">How To Use</a>
+            <a href="../#commands" class="text-gray-700 hover:text-indigo-600 py-2 border-b border-gray-200">Commands</a>
+            <a href="../#faq" class="text-gray-700 hover:text-indigo-600 py-2 border-b border-gray-200">FAQ</a>
+            <a href="../#to-add" class="text-gray-700 hover:text-indigo-600 py-2 border-b border-gray-200">Roadmap</a>
+            <a href="../#developer" class="text-gray-700 hover:text-indigo-600 py-2 border-b border-gray-200">Developer</a>
+            <a href="../privacy" class="text-gray-700 hover:text-indigo-600 py-2 border-b border-gray-200">Privacy Policy</a>
+            <a href="../terms" class="text-gray-700 hover:text-indigo-600 py-2 border-b border-gray-200">Terms of Service</a>
+            <div class="pt-4 flex items-center">
+                <span class="mr-3 text-gray-700">Dark Mode</span>
+                <div class="dark-mode-toggle" id="darkModeToggleMobile">
+                    <div class="toggle-circle">
+                        <i class="fas fa-sun text-yellow-500"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <script>
-        window.location.href = "https://discord.com/oauth2/authorize?client_id=1341454344792309780&permissions=414733158480&integration_type=0&scope=bot";
-    </script>
 
+    <nav class="bg-white shadow-md sticky top-0 z-30 sticky-nav" id="mainNav">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <img src="../images/BackupBot.png" alt="BackupBot Logo" class="w-10 h-10">
+                <a href="https://backupbot.org/" class="text-xl font-bold text-gray-800 hover:text-indigo-600 transition-colors">BackupBot</a>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="../#features" class="text-gray-700 hover:text-indigo-600 transition-colors">Features</a>
+                <a href="../#how-to-use" class="text-gray-700 hover:text-indigo-600 transition-colors">How To Use</a>
+                <a href="../#commands" class="text-gray-700 hover:text-indigo-600 transition-colors">Commands</a>
+                <a href="../#faq" class="text-gray-700 hover:text-indigo-600 transition-colors">FAQ</a>
+                <a href="../#to-add" class="text-gray-700 hover:text-indigo-600 transition-colors">Roadmap</a>
+                <a href="../#developer" class="text-gray-700 hover:text-indigo-600 transition-colors">Developer</a>
+                <a href="../privacy" class="text-gray-700 hover:text-indigo-600 transition-colors">Privacy</a>
+                <a href="../terms" class="text-gray-700 hover:text-indigo-600 transition-colors">Terms</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="hidden md:flex items-center">
+                    <div class="dark-mode-toggle mr-4" id="darkModeToggleDesktop">
+                        <div class="toggle-circle">
+                            <i class="fas fa-sun text-yellow-500"></i>
+                        </div>
+                    </div>
+                </div>
+                <button id="menuButton" class="md:hidden text-gray-700 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-gradient text-white py-16">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight fade-in">Redirecting to Support Server</h1>
+            <p class="text-xl mb-8 max-w-3xl mx-auto fade-in">You are being redirected to the BackupBot Discord support server. If you are not redirected automatically, click the button below.</p>
+            <div class="flex justify-center fade-in">
+                <a href="https://discord.gg/Xnh5ckQVyV" class="bg-white text-indigo-600 px-6 py-3 rounded-md font-semibold hover:bg-gray-100 transition-colors btn">
+                    Join Support Server <i class="fab fa-discord ml-2"></i>
+                </a>
+            </div>
+            <div class="mt-10 flex justify-center">
+                <div class="loading">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-2 mb-6 md:mb-0">
+                    <img src="../images/BackupBot.png" alt="BackupBot Logo" class="w-12 h-12">
+                    <a href="https://backupbot.org/" class="text-2xl font-bold text-white hover:text-gray-300 transition-colors">BackupBot</a>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="https://github.com/BackupBotlol" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-github text-2xl"></i>
+                    </a>
+                    <a href="../redirect/invite" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-discord text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-gray-400">
+                <p>© 2025 BackupBot, All rights reserved, if you Don't like our rights you should sybau</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        setTimeout(function() {
+            window.location.href = "https://discord.gg/Xnh5ckQVyV";
+        }, 1000);
+    </script>
 </body>
 </html>
