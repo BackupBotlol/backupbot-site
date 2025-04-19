@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initLazyLoading();
     initTooltips();
     checkForLocalStorageConsent();
+    removeSearchFeature();
 });
 
 function initNavigation() {
@@ -420,3 +421,24 @@ function addSkipToContentLink() {
 }
 
 addSkipToContentLink();
+
+function removeSearchFeature() {
+    const searchContainer = document.getElementById('searchContainer');
+    if (searchContainer) {
+        searchContainer.remove();
+    }
+    
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+        let parentElement = searchInput.parentElement;
+        while (parentElement && !parentElement.id.includes('search') && !parentElement.classList.contains('nav')) {
+            parentElement = parentElement.parentElement;
+        }
+        
+        if (parentElement) {
+            parentElement.remove();
+        } else {
+            searchInput.remove();
+        }
+    }
+}
