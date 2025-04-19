@@ -1,3 +1,3 @@
 A website for BackupBot
 ------
-- https://backupbot.org/
+- https://backupbot.net/
