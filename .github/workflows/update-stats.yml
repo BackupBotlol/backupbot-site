@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          fetch-depth: 0  # Fetch all history
+          fetch-depth: 0
       
       - name: Setup Node.js
         uses: actions/setup-node@v2
@@ -24,11 +24,12 @@ jobs:
           
       - name: Commit and Push changes
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Actions"
-          
-          git pull --rebase origin main
-          
-          git add index.html
-          git commit -m "Update stats in HTML" || echo "No changes to commit"
-          git push origin HEAD:main
+            git config --local user.email "action@github.com"
+            git config --local user.name "GitHub Action"
+
+            git stash --include-untracked
+            git pull --rebase origin main
+            git stash pop || true  
+            git add index.html
+            git commit -m "Update stats in index" || echo "No changes to commit"
+            git push origin HEAD:main
