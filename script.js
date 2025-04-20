@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initNavigation();
     initDarkMode();
     initFAQAccordion();
-    initAnimatedCounters();
+    fetchStatsAndInitCounters();
     initBackToTop();
     initSmoothScroll();
     initMobileMenu();
@@ -158,6 +158,35 @@ function initFAQAccordion() {
             question.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
         });
     });
+}
+
+async function fetchStatsAndInitCounters() {
+    try {
+        const response = await fetch('https://raw.githubusercontent.com/BackupBotlol/website/main/stats.json');
+        if (response.ok) {
+            const stats = await response.json();
+            
+            const serversCounter = document.getElementById('serversCount');
+            const backupsCounter = document.getElementById('backupsCount');
+            const dataSavedCounter = document.getElementById('dataSavedCount');
+            
+            if (serversCounter && stats.servers_protected !== undefined) {
+                serversCounter.setAttribute('data-count', stats.servers_protected);
+            }
+            
+            if (backupsCounter && stats.backups_created !== undefined) {
+                backupsCounter.setAttribute('data-count', stats.backups_created);
+            }
+            
+            if (dataSavedCounter && stats.data_saved_gb !== undefined) {
+                dataSavedCounter.setAttribute('data-count', stats.data_saved_gb);
+            }
+        }
+    } catch (error) {
+        console.warn('Could not fetch stats from GitHub. Using default values.', error);
+    }
+    
+    initAnimatedCounters();
 }
 
 function initAnimatedCounters() {
