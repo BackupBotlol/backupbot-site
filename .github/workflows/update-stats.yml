@@ -21,14 +21,20 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '14'
+          cache: 'npm'
+      
+      - name: Create cache directories
+        run: |
+          mkdir -p ~/.npm
+          mkdir -p .npm-cache
       
       - name: Cache Node.js modules
         uses: actions/cache@v4.2.3
         with:
           path: |
             ~/.npm
-            node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package.json') }}
+            .npm-cache
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package.json') || github.sha }}
           restore-keys: |
             ${{ runner.os }}-node-
           
