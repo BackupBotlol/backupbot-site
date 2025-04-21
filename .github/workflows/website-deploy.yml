@@ -32,10 +32,12 @@ jobs:
       - name: Cache Jekyll dependencies
         uses: actions/cache@v4.2.3
         with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          path: |
+            .jekyll-cache
+            _site
+          key: ${{ runner.os }}-jekyll-${{ hashFiles('**/*.html', '**/*.md', '**/*.yml') }}
           restore-keys: |
-            ${{ runner.os }}-gems-
+            ${{ runner.os }}-jekyll-
             
       - name: Setup Pages
         uses: actions/configure-pages@v5
