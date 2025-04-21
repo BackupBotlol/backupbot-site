@@ -6,7 +6,7 @@ let html = fs.readFileSync('index.html', 'utf8');
 
 html = html.replace(/id="serversCount" data-count="(\d+)"/g, `id="serversCount" data-count="${stats.servers_protected}"`);
 html = html.replace(/id="backupsCount" data-count="(\d+)"/g, `id="backupsCount" data-count="${stats.backups_created}"`);
-html = html.replace(/id="dataSavedCount" data-count="(\d+)"/g, `id="dataSavedCount" data-count="${stats.data_saved_gb}"`);
+html = html.replace(/id="dataSavedCount" data-count="(\d+)"/g, `id="dataSavedCount" data-count="${stats.data_saved_bytes}"`);
 
 fs.writeFileSync('index.html', html);
 
