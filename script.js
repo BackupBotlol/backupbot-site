@@ -178,8 +178,8 @@ async function fetchStatsAndInitCounters() {
                 backupsCounter.setAttribute('data-count', stats.backups_created);
             }
             
-            if (dataSavedCounter && stats.data_saved_gb !== undefined) {
-                dataSavedCounter.setAttribute('data-count', stats.data_saved_gb);
+            if (dataSavedCounter && stats.data_saved_bytes !== undefined) {
+                dataSavedCounter.setAttribute('data-count', stats.data_saved_bytes);
             }
         }
     } catch (error) {
@@ -195,6 +195,7 @@ function initAnimatedCounters() {
     if (counters.length === 0) return;
     
     function animateCounter(element, target, duration = 2000, startDelay = 500) {
+        target = Number(target);
         let start = 0;
         const startTime = Date.now() + startDelay;
         
@@ -213,7 +214,8 @@ function initAnimatedCounters() {
                 return;
             }
             
-            const value = Math.floor((elapsed / duration) * target);
+            const progress = elapsed / duration;
+            const value = Math.floor(progress * target);
             
             if (value !== start) {
                 element.textContent = value.toLocaleString();
@@ -236,7 +238,7 @@ function initAnimatedCounters() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const counterElement = entry.target;
-                const targetValue = parseInt(counterElement.dataset.count || counterElement.textContent, 10);
+                const targetValue = Number(counterElement.dataset.count || counterElement.textContent);
                 
                 animateCounter(counterElement, targetValue);
                 observer.unobserve(counterElement);
@@ -246,7 +248,7 @@ function initAnimatedCounters() {
     
     counters.forEach(counter => {
         if (!counter.dataset.count) {
-            const targetValue = parseInt(counter.textContent, 10);
+            const targetValue = Number(counter.textContent);
             counter.dataset.count = targetValue;
             counter.textContent = '0';
         }
