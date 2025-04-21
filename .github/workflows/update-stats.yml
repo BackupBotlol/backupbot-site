@@ -5,6 +5,10 @@ on:
     paths:
       - 'stats.json'
 
+concurrency:
+  group: stats-update-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   update-html:
     runs-on: ubuntu-latest
@@ -24,12 +28,25 @@ jobs:
           
       - name: Commit and Push changes
         run: |
-            git config --local user.email "action@github.com"
-            git config --local user.name "GitHub Action"
-
-            git stash --include-untracked
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          
+          git fetch origin main
+          
+          git add index.html
+          git commit -m "Update stats in index" || echo "No changes to commit"
+          
+          max_attempts=3
+          attempt=1
+          until git push origin HEAD:main || [ $attempt -ge $max_attempts ]
+          do
+            echo "Push failed, retrying in 5 seconds... (Attempt $attempt of $max_attempts)"
+            sleep 5
             git pull --rebase origin main
-            git stash pop || true  
-            git add index.html
-            git commit -m "Update stats in index" || echo "No changes to commit"
-            git push origin HEAD:main
+            ((attempt++))
+          done
+          
+          if [ $attempt -ge $max_attempts ]; then
+            echo "Failed to push after $max_attempts attempts"
+            exit 1
+          fi
