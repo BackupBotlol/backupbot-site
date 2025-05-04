@@ -162,7 +162,7 @@ function initFAQAccordion() {
 
 async function fetchStatsAndInitCounters() {
     try {
-        const response = await fetch('https://raw.githubusercontent.com/BackupBotlol/website/main/stats.json');
+        const response = await fetch('https://raw.githubusercontent.com/BackupBotlol/backupbot.net/main/stats.json');
         if (response.ok) {
             const stats = await response.json();
             
@@ -406,7 +406,7 @@ function checkForLocalStorageConsent() {
     consentBanner.innerHTML = `
         <div class="mb-4 md:mb-0">
             <p class="text-gray-700 dark:text-gray-300">
-                This website uses cookies to enhance your experience and enable features like dark mode preferences.
+                This website uses cookies to enhance your experience and enable features like dark mode preferences
             </p>
         </div>
         <div class="flex space-x-4">
