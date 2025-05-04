@@ -640,3 +640,18 @@ div[id*="search"],
 .search-container {
     display: none !important;
 }
+
+code.bg-blue-200 {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode code.bg-blue-200 {
+  background-color: #3b5998;
+  color: #e0e0e0;
+  border: 1px solid #4e5d94;
+}
+
+body.dark-mode code.bg-blue-200:hover {
+  background-color: #4668b9;
+  box-shadow: 0 0 5px rgba(114, 137, 218, 0.5);
+}
