@@ -655,3 +655,21 @@ body.dark-mode code.bg-blue-200:hover {
   background-color: #4668b9;
   box-shadow: 0 0 5px rgba(114, 137, 218, 0.5);
 }
+
+body.dark-mode #cookie-consent {
+  background-color: var(--dark-secondary);
+  color: var(--text-light);
+}
+
+body.dark-mode #cookie-decline {
+  background-color: #4f545c;
+  color: white;
+}
+
+body.dark-mode #cookie-decline:hover {
+  background-color: #5d6269;
+}
+
+.dark-cookie-banner {
+  background-color: var(--dark-secondary) !important;
+}

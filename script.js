@@ -400,12 +400,12 @@ function checkForLocalStorageConsent() {
     if (localStorage.getItem('cookie-consent')) return;
     
     const consentBanner = document.createElement('div');
-    consentBanner.className = 'fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-800 shadow-lg p-4 z-50 flex flex-col md:flex-row items-center justify-between';
+    consentBanner.className = 'fixed bottom-0 left-0 right-0 bg-white shadow-lg p-4 z-50 flex flex-col md:flex-row items-center justify-between';
     consentBanner.id = 'cookie-consent';
     
     consentBanner.innerHTML = `
         <div class="mb-4 md:mb-0">
-            <p class="text-gray-700 dark:text-gray-300">
+            <p class="text-gray-700">
                 This website uses cookies to enhance your experience and enable features like dark mode preferences
             </p>
         </div>
@@ -413,13 +413,44 @@ function checkForLocalStorageConsent() {
             <button id="cookie-accept" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition-colors">
                 Accept
             </button>
-            <button id="cookie-decline" class="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-white px-4 py-2 rounded-md hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+            <button id="cookie-decline" class="bg-gray-200 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-300 transition-colors">
                 Decline
             </button>
         </div>
     `;
     
     document.body.appendChild(consentBanner);
+    
+    const updateDarkModeStyles = () => {
+        if (document.body.classList.contains('dark-mode')) {
+            consentBanner.classList.add('dark-cookie-banner');
+            document.querySelector('#cookie-consent p').classList.remove('text-gray-700');
+            document.querySelector('#cookie-consent p').classList.add('text-gray-300');
+            const declineBtn = document.getElementById('cookie-decline');
+            declineBtn.classList.remove('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
+            declineBtn.classList.add('bg-gray-700', 'text-white', 'hover:bg-gray-600');
+        } else {
+            consentBanner.classList.remove('dark-cookie-banner');
+            document.querySelector('#cookie-consent p').classList.add('text-gray-700');
+            document.querySelector('#cookie-consent p').classList.remove('text-gray-300');
+            const declineBtn = document.getElementById('cookie-decline');
+            declineBtn.classList.add('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
+            declineBtn.classList.remove('bg-gray-700', 'text-white', 'hover:bg-gray-600');
+        }
+    };
+    
+    updateDarkModeStyles();
+    
+    const darkModeToggleDesktop = document.getElementById('darkModeToggleDesktop');
+    const darkModeToggleMobile = document.getElementById('darkModeToggleMobile');
+    
+    if (darkModeToggleDesktop) {
+        darkModeToggleDesktop.addEventListener('click', updateDarkModeStyles);
+    }
+    
+    if (darkModeToggleMobile) {
+        darkModeToggleMobile.addEventListener('click', updateDarkModeStyles);
+    }
     
     document.getElementById('cookie-accept').addEventListener('click', () => {
         localStorage.setItem('cookie-consent', 'accepted');
