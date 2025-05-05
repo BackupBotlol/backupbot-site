@@ -1,4 +1,4 @@
-A website for BackupBot
+A website made for BackupBot
 ------
 - https://backupbot.net/
 
