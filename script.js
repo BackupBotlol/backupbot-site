@@ -162,7 +162,7 @@ function initFAQAccordion() {
 
 async function fetchStatsAndInitCounters() {
     try {
-        const response = await fetch('https://raw.githubusercontent.com/BackupBotlol/backupbot.net/main/stats.json');
+        const response = await fetch('https://backupbot.net/stats.json');
         if (response.ok) {
             const stats = await response.json();
             
