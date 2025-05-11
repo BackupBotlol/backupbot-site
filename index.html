@@ -492,29 +492,35 @@
     <script src="script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const votePopup = document.getElementById('votePopup');
-            const closeVotePopup = document.getElementById('closeVotePopup');
-            
-            setTimeout(() => {
-                votePopup.classList.add('animate-bounce');
-                setTimeout(() => {
-                    votePopup.classList.remove('animate-bounce');
-                }, 1000);
-            }, 5000);
-            
-            closeVotePopup.addEventListener('click', function() {
-                votePopup.classList.add('transform', 'translate-y-full', 'opacity-0');
-                setTimeout(() => {
-                    votePopup.style.display = 'none';
-                }, 300);
-                
-                localStorage.setItem('votePopupClosed', 'true');
-            });
-            
-            if (localStorage.getItem('votePopupClosed')) {
-                votePopup.style.display = 'none';
-            }
-        });
+    const votePopup = document.getElementById('votePopup');
+    const closeVotePopup = document.getElementById('closeVotePopup');
+   
+    if (!localStorage.getItem('votePopupClosed')) {
+        
+        votePopup.style.transform = 'translateY(100%)';
+        votePopup.style.opacity = '0';
+        votePopup.style.display = 'flex'; // Ensure it's displayed for animation
+        votePopup.style.transition = 'transform 0.6s ease-out, opacity 0.6s ease-out';
+        
+        setTimeout(() => {
+            votePopup.style.transform = 'translateY(0)';
+            votePopup.style.opacity = '1';
+        }, 5000);
+    } else {
+        votePopup.style.display = 'none';
+    }
+    
+    closeVotePopup.addEventListener('click', function() {
+        votePopup.style.transform = 'translateY(100%)';
+        votePopup.style.opacity = '0';
+        
+        setTimeout(() => {
+            votePopup.style.display = 'none';
+        }, 600);
+        
+        localStorage.setItem('votePopupClosed', 'true');
+    });
+});
     </script>
 </body>
 </html>
