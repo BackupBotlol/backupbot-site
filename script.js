@@ -406,7 +406,7 @@ function checkForLocalStorageConsent() {
     consentBanner.innerHTML = `
         <div class="mb-4 md:mb-0">
             <p class="text-gray-700">
-                This website uses cookies to enhance your experience and enable features like dark mode preferences
+                This website uses cookies to enhance your experience and enable features like dark mode preferences, see our <a href="./cookies" class="text-white hover:text-gray-200 underline">Cookie Policy</a> for more details.
             </p>
         </div>
         <div class="flex space-x-4">
