@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BackupBot - Cookie Policy for Server data saver">
+    <meta name="keywords" content="Discord, bot, backup, server, protection, automated, BackupBot, cookie, policy, best">
+    <meta name="author" content="Andres99">
+    <title>BackupBot - Cookie Policy</title>
+    <link rel="icon" href="images/BackupBot.png" type="image/png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100">
+    <div class="menu-overlay" id="menuOverlay"></div>
+    <div class="mobile-menu bg-white shadow-lg p-6" id="mobileMenu">
+        <div class="flex justify-between items-center mb-8">
+            <div class="flex items-center space-x-2">
+                <img src="images/BackupBot.png" alt="BackupBot Logo" class="w-10 h-10">
+                <a href="https://backupbot.net/" class="text-xl font-bold text-gray-800">BackupBot</a>
+            </div>
+            <button id="closeMenu" class="text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+        </div>
+        <div class="flex flex-col space-y-4">
+            <a href="https://backupbot.net/#features" class="text-gray-700 hover:text-indigo-600 py-2 border-b border-gray-200">Features</a>
+            <a href="https://backupbot.net/#how-to-use" class="text-gray-700 hover:text-indigo-600 py-2 border-b border-gray-200">How To Use</a>
+            <a href="https://backupbot.net/#commands" class="text-gray-700 hover:text-indigo-600 py-2 border-b border-gray-200">Commands</a>
+            <a href="https://backupbot.net/#faq" class="text-gray-700 hover:text-indigo-600 py-2 border-b border-gray-200">FAQ</a>
+            <a href="https://backupbot.net/#to-add" class="text-gray-700 hover:text-indigo-600 py-2 border-b border-gray-200">Roadmap</a>
+            <a href="https://backupbot.net/#developer" class="text-gray-700 hover:text-indigo-600 py-2 border-b border-gray-200">Developer</a>
+            <a href="./privacy" class="text-gray-700 hover:text-indigo-600 py-2 border-b border-gray-200">Privacy Policy</a>
+            <a href="./terms" class="text-gray-700 hover:text-indigo-600 py-2 border-b border-gray-200">Terms of Service</a>
+            <a href="./cookies" class="text-indigo-600 font-medium py-2 border-b border-gray-200">Cookie Policy</a>
+            <div class="pt-4 flex items-center">
+                <span class="mr-3 text-gray-700">Dark Mode</span>
+                <div class="dark-mode-toggle" id="darkModeToggleMobile">
+                    <div class="toggle-circle">
+                        <i class="fas fa-sun text-yellow-500"></i>
+                    </div>
+                </div>
+            </div>
+            <a href="./redirect/invite" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition-colors mt-4 text-center">
+                Add to your Server
+            </a>
+        </div>
+    </div>
+
+    <nav class="bg-white shadow-md sticky top-0 z-30 sticky-nav" id="mainNav">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <img src="images/BackupBot.png" alt="BackupBot Logo" class="w-10 h-10">
+                <a href="https://backupbot.net/" class="text-xl font-bold text-gray-800 hover:text-indigo-600 transition-colors">BackupBot</a>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="https://backupbot.net/#features" class="text-gray-700 hover:text-indigo-600 transition-colors">Features</a>
+                <a href="https://backupbot.net/#how-to-use" class="text-gray-700 hover:text-indigo-600 transition-colors">How To Use</a>
+                <a href="https://backupbot.net/#commands" class="text-gray-700 hover:text-indigo-600 transition-colors">Commands</a>
+                <a href="https://backupbot.net/#faq" class="text-gray-700 hover:text-indigo-600 transition-colors">FAQ</a>
+                <a href="https://backupbot.net/#to-add" class="text-gray-700 hover:text-indigo-600 transition-colors">Roadmap</a>
+                <a href="https://backupbot.net/#developer" class="text-gray-700 hover:text-indigo-600 transition-colors">Developer</a>
+                <a href="./privacy" class="text-gray-700 hover:text-indigo-600 transition-colors">Privacy</a>
+                <a href="./terms" class="text-gray-700 hover:text-indigo-600 transition-colors">Terms</a>
+                <a href="./cookies" class="text-indigo-600 transition-colors">Cookies</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="hidden md:flex items-center">
+                    <div class="dark-mode-toggle mr-4" id="darkModeToggleDesktop">
+                        <div class="toggle-circle">
+                            <i class="fas fa-sun text-yellow-500"></i>
+                        </div>
+                    </div>
+                </div>
+                <a href="./redirect/invite" class="hidden md:inline-block bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition-colors btn">
+                    Add to your Server <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+                <button id="menuButton" class="md:hidden text-gray-700 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-gradient text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Cookie Policy</h1>
+            <p class="text-xl">Effective Date: May 17, 2025</p>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="policy-section">
+                <h3 class="text-2xl font-bold text-gray-800">Introduction</h3>
+                <p class="text-gray-600">This Cookie Policy explains how BackupBot uses cookies and similar technologies on our website (backupbot.net), By using our website, you consent to the use of cookies as described in this policy.</p>
+            </div>
+
+            <div class="policy-section">
+                <h3 class="text-2xl font-bold text-gray-800">What Are Cookies?</h3>
+                <p class="text-gray-600">A cookie is a small piece of text that is sent to a user's browser, desktop client or device, The browser provides this piece of text to the device of the originating user when this visitor returns.</p>
+            </div>
+
+            <div class="policy-section">
+                <h3 class="text-2xl font-bold text-gray-800">Types of Cookies We Use</h3>
+                
+                <h4 class="text-xl font-semibold mt-6 mb-3 text-gray-700">Essential Cookies</h4>
+                <p class="text-gray-600">These cookies are necessary for the website to function properly, They enable core functionality such as security, network management, and account access, You cannot opt out of these cookies.</p>
+                
+                <h4 class="text-xl font-semibold mt-6 mb-3 text-gray-700">Preference Cookies</h4>
+                <ul class="list-disc pl-6 text-gray-600 space-y-2">
+                    <li><span class="font-semibold">Dark Mode Preferences:</span> We store your preference for dark mode in a cookie called "theme" which remembers your preferred display setting.</li>
+                    <li><span class="font-semibold">Cookie Consent:</span> We use a "cookie-consent" cookie to remember your choice regarding cookie usage on our site.</li>
+                </ul>
+
+                <h4 class="text-xl font-semibold mt-6 mb-3 text-gray-700">Analytics Cookies</h4>
+                <p class="text-gray-600">We do not (currently) use third-party analytics cookies on our website.</p>
+            </div>
+
+            <div class="policy-section">
+                <h3 class="text-2xl font-bold text-gray-800">How We Use Cookies</h3>
+                <p class="text-gray-600">We use cookies for the following purposes:</p>
+                <ul class="list-disc pl-6 text-gray-600 space-y-2">
+                    <li>To enable site features and functionality, such as the dark mode toggle.</li>
+                    <li>To remember your preferences, such as your preferred theme (light mode or dark mode).</li>
+                    <li>To improve user experience by saving you from having to re-enter information or preferences on each visit.</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h3 class="text-2xl font-bold text-gray-800">Local Storage</h3>
+                <p class="text-gray-600">In addition to cookies, we also use local storage for similar purposes, Local storage is a technology that allows websites to store information on your device in a way that's similar to cookies, but with some differences in how the data is managed and accessed, We use local storage primarily for:</p>
+                <ul class="list-disc pl-6 text-gray-600 space-y-2">
+                    <li>Storing your dark mode preference</li>
+                    <li>Remembering your cookie consent decision</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h3 class="text-2xl font-bold text-gray-800">Managing Cookies</h3>
+                
+                <h4 class="text-xl font-semibold mt-6 mb-3 text-gray-700">Browser Settings</h4>
+                <p class="text-gray-600">Most web browsers allow you to manage your cookie preferences. You can set your browser to refuse cookies, or to alert you when cookies are being sent, The methods for doing so vary from browser to browser, and from version to version, You can obtain information about blocking and deleting cookies via these links:</p>
+                <ul class="list-disc pl-6 text-gray-600 space-y-2">
+                    <li><a href="https://support.google.com/chrome/answer/95647" class="text-indigo-600 hover:text-indigo-800">Chrome</a></li>
+                    <li><a href="https://support.mozilla.org/en-US/kb/clear-cookies-and-site-data-firefox" class="text-indigo-600 hover:text-indigo-800">Firefox</a></li>
+                    <li><a href="https://support.apple.com/guide/safari/manage-cookies-sfri11471/mac" class="text-indigo-600 hover:text-indigo-800">Safari</a></li>
+                    <li><a href="https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" class="text-indigo-600 hover:text-indigo-800">Edge</a></li>
+                </ul>
+                <p class="text-gray-600 mt-4">note that blocking cookies may impact the functionality of our website, For example, if you disable cookies, you may not be able to use the dark mode feature, and your preference won't be remembered between visits.</p>
+                
+                <h4 class="text-xl font-semibold mt-6 mb-3 text-gray-700">Our Cookie Consent Banner</h4>
+                <p class="text-gray-600">When you first visit our website, you will be presented with a cookie consent banner that allows you to accept or decline non-essential cookies, If you choose to decline, we will only use essential cookies that are necessary for the website to function properly.</p>
+            </div>
+
+            <div class="policy-section">
+                <h3 class="text-2xl font-bold text-gray-800">Updates to This Cookie Policy</h3>
+                <p class="text-gray-600">We may update this Cookie Policy from time to time, We will (or won't) notify users of significant changes through our Discord support server or through direct announcement in your log channel.</p>
+            </div>
+
+            <div class="policy-section">
+                <h3 class="text-2xl font-bold text-gray-800">Third-Party Websites</h3>
+                <p class="text-gray-600">Our website may contain links to third-party websites, Please note that we do not control cookies used by these websites, We encourage you to read the cookie policies of these websites when you visit them.</p>
+            </div>
+
+            <div class="policy-section">
+                <h3 class="text-2xl font-bold text-gray-800">Contact Us</h3>
+                <p class="text-gray-600">If you have any questions about our Cookie Policy or our data practices or any other questions, please contact us through our <a href="https://discord.gg/Xnh5ckQVyV" class="text-indigo-600 hover:text-indigo-800">Discord support server</a> or through our <a href="mailto:andres-backupbot@proton.me" class="text-indigo-600 hover:text-indigo-800">Email</a>.</p>
+            </div>
+
+            <div class="mt-12 text-sm text-gray-600 border-t pt-8">
+                <p>BackupBot © 2025 BackupBot Developer Andres99. BackupBot and the BackupBot logo are trademarks of BackupBot Developer Andres99., registered in Iraq and other countries, Discord and the Discord logo are trademarks of Discord Inc., registered in the U.S. and other countries. Cloudflare and the Cloudflare logo are trademarks of Cloudflare Inc., registered in the U.S. and other countries, All other trademarks, logos and copyrights are property of their respective owners. All rights reserved.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero-gradient text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-6">You Ready to Make sure Your Discord Server doesn't fall apart and the info doesn't get deleted?</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">Then Add BackupBot to your server today!, because tomorrow if you don't a Huge Meteor is gonna fall on YOU and on YOUR server, Actually scrape that add it NOW (/j Love yall)</p>
+            <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
+                <a href="./redirect/invite" class="bg-white text-indigo-600 px-8 py-4 rounded-md font-semibold hover:bg-gray-100 transition-colors">
+                    Add to your Server <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+                <a href="./redirect/server" class="bg-gray-800 text-white px-8 py-4 rounded-md font-semibold hover:bg-gray-700 transition-colors">
+                    Join our very cool Support Server <i class="fab fa-discord ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-2 mb-6 md:mb-0">
+                    <img src="images/BackupBot.png" alt="BackupBot Logo" class="w-12 h-12">
+                    <a href="https://backupbot.net/" class="text-2xl font-bold text-white hover:text-gray-300 transition-colors">BackupBot</a>
+                </div>
+                <div class="flex flex-wrap justify-center gap-4 mb-6 md:mb-0">
+                    <a href="https://backupbot.net/#features" class="text-gray-400 hover:text-white transition-colors">Features</a>
+                    <a href="https://backupbot.net/#how-to-use" class="text-gray-400 hover:text-white transition-colors">How To Use</a>
+                    <a href="https://backupbot.net/#commands" class="text-gray-400 hover:text-white transition-colors">Commands</a>
+                    <a href="https://backupbot.net/#faq" class="text-gray-400 hover:text-white transition-colors">FAQ</a>
+                    <a href="https://backupbot.net/#to-add" class="text-gray-400 hover:text-white transition-colors">Roadmap</a>
+                    <a href="https://backupbot.net/#developer" class="text-gray-400 hover:text-white transition-colors">Developer</a>
+                    <a href="./privacy" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="./terms" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
+                    <a href="./cookies" class="text-white transition-colors">Cookie Policy</a>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="https://github.com/BackupBotlol" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-github text-2xl"></i>
+                    </a>
+                    <a href="./redirect/server" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-discord text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-gray-400">
+                <p>© 2025 BackupBot, All rights reserved, if you Don't like our rights you should sybau</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
