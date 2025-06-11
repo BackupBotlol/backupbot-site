@@ -1,0 +1,20 @@
+# If you have any questions about this, ask them on the Github repo or contact us
+# Sitemap: https://backupbot.net/sitemap.xml
+
+User-agent: *
+Disallow: /.git/
+Disallow: /.github/
+Disallow: /LICENSE
+Disallow: /README.md
+Disallow: /CNAME
+Disallow: /stats.json
+Disallow: /script.js
+Disallow: /styles.css
+
+Allow: /index.html
+Allow: /terms.html
+Allow: /privacy.html
+Allow: /cookies.html
+Allow: /404.html
+Allow: /sitemap.xml
+Allow: /tailwind.min.css
