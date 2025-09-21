@@ -1,5 +1,5 @@
 # If you have any questions about this, ask them on the Github repo or contact us
-# Sitemap: https://backupbot.is-cool.dev/sitemap.xml
+# Sitemap: https://backupbot.qzz.io/sitemap.xml
 
 User-agent: *
 Disallow: /.git/
