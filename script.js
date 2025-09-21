@@ -162,7 +162,7 @@ function initFAQAccordion() {
 
 async function fetchStatsAndInitCounters() {
     try {
-        const response = await fetch('https://backupbot.is-cool.dev/stats.json');
+        const response = await fetch('https://backupbot.qzz.io/stats.json');
         if (response.ok) {
             const stats = await response.json();
             
